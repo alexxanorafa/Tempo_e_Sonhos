@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exploração do Tempo e dos Sonhos</title>
+  <meta name="description" content="Descubra os significados das horas do dia.">
+  <meta name="keywords" content="horas, significados, tempo, sonhos">
+  <meta name="author" content="Alexandre Ventura">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      margin-left: 10%;
+      margin-right: 10%;
+      margin-top: 20px;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 2em;
+    }
+
+    h2 {
+      color: #333;
+      font-size: 1.5em;
+      margin-top: 20px;
+    }
+
+    p {
+      color: #666;
+    }
+
+    #left-bar,
+    #right-bar {
+      position: fixed;
+      top: 0;
+      height: 100%;
+      width: 10%;
+      background-color: #333;
+      z-index: -1;
+    }
+
+    #left-bar {
+      left: 0;
+    }
+
+    #right-bar {
+      right: 0;
+    }
+
+    #content {
+      z-index: 1;
+      background-color: #fff;
+      padding: 20px;
+    }
+
+    #header-art,
+    #footer-art {
+      font-family: monospace;
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #999;
+    }
+
+    .clock {
+      fill: none;
+      stroke: #999;
+      stroke-width: 2;
+    }
+
+    .hour-hand,
+    .minute-hand {
+      stroke: #333;
+      stroke-width: 4;
+    }
+
+    .current-hour {
+      fill: #FF0000; /* Cor de destaque para a hora atual */
+    }
+
+    #digital-clock {
+      font-size: 1.5em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<div id="left-bar">
+  <svg class="clock" id="left-clock" width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="40" />
+    <line class="hour-hand" x1="50" y1="50" x2="50" y2="30" />
+    <line class="minute-hand" x1="50" y1="50" x2="50" y2="20" />
+  </svg>
+</div>
+
+<div id="right-bar">
+  <svg class="clock" id="right-clock" width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="40" />
+    <line class="hour-hand" x1="50" y1="50" x2="50" y2="30" />
+    <line class="minute-hand" x1="50" y1="50" x2="50" y2="20" />
+  </svg>
+</div>
+
+<div id="content">
+  <h1>Exploração do Tempo e dos Sonhos</h1>
+
+  <div id="digital-clock"></div>
+
+  <h2 id="00:00" class="current-time">00:00</h2>
+  <p>Encontra-se no mundo dos sonhos de alguém. Faça um pedido.</p>
+  
+  <h2 id="00:01" class="current-time">00:01</h2>
+  <p>Alguém está com saudades de ti. Pode ser reconfortante ouvir a tua voz.</p>
+  
+  <h2 id="01:00" class="current-time">01:00</h2>
+  <p>Alguém que gosta de ti pode revelar os seus sentimentos. Haverá progressos positivos.</p>
+  
+  <h2 id="01:01" class="current-time">01:01</h2>
+  <p>Alguém te ama.</p>
+  
+  <h2 id="01:02" class="current-time">01:02</h2>
+  <p>Algumas pessoas deixaram de te amar. Ouviram uma música que os fez lembrar de ti.</p>
+  
+  <h2 id="01:10" class="current-time">01:10</h2>
+  <p>Alguém próximo está interessado em ti, mas espera que tomes a iniciativa.</p>
+  
+  <h2 id="01:11" class="current-time">01:11</h2>
+  <p>Ontem, um grupo de pessoas quis falar contigo.</p>
+  
+  <h2 id="01:23" class="current-time">01:23</h2>
+  <p>Pessoas desejam-te mal.</p>
+  
+  <h2 id="02:00" class="current-time">02:00</h2>
+  <p>O amor está no ar, e encontrarás a tua alma gémea. Sentem saudades de ti.</p>
+  
+  <h2 id="02:01" class="current-time">02:01</h2>
+  <p>Darás um pequeno beijo.</p>
+  
+  <h2 id="02:02" class="current-time">02:02</h2>
+  <p>Em breve terás um encontro. Alguém irá beijar-te hoje.</p>
+  
+  <h2 id="02:03" class="current-time">02:03</h2>
+  <p>Sonharam contigo.</p>
+  
+  <h2 id="02:04" class="current-time">02:04</h2>
+  <p>Alguém vai propor uma relação contigo.</p>
+  
+  <h2 id="02:20" class="current-time">02:20</h2>
+  <p>Amor correspondido. Receberás boas notícias em breve.</p>
+  
+  <h2 id="02:22" class="current-time">02:22</h2>
+  <p>Amor retribuído.</p>
+  
+  <h2 id="03:00" class="current-time">03:00</h2>
+  <p>Alguém muito especial vai convidar-te para algo.</p>
+  
+  <h2 id="03:03" class="current-time">03:03</h2>
+  <p>Com essa pessoa, és mais feliz. O teu amor estará sempre contigo, aconteça o que acontecer.</p>
+  
+  <h2 id="03:04" class="current-time">03:04</h2>
+  <p>Acham-te lindo/a.</p>
+  
+  <h2 id="03:30" class="current-time">03:30</h2>
+  <p>Desejam-te. Algo te fará chorar.</p>
+  
+  <h2 id="03:33" class="current-time">03:33</h2>
+  <p>Algo de bom irá acontecer.</p>
+  
+  <h2 id="04:00" class="current-time">04:00</h2>
+  <p>Alguém que não vês há muito tempo aparecerá nos teus sonhos. A pessoa que amas está a pensar em ti.</p>
+  
+  <h2 id="04:02" class="current-time">04:02</h2>
+  <p>Vais fugir de casa.</p>
+  
+  <h2 id="04:04" class="current-time">04:04</h2>
+  <p>Alguém distante está a pensar em ti.</p>
+  
+  <h2 id="04:05" class="current-time">04:05</h2>
+  <p>Esqueceram-se de ti. Terás um futuro brilhante.</p>
+  
+  <h2 id="04:08" class="current-time">04:08</h2>
+  <p>Perda de algo.</p>
+  
+  <h2 id="04:40" class="current-time">04:40</h2>
+  <p>Desencontros. Terás um pesadelo.</p>
+  
+  <h2 id="04:44" class="current-time">04:44</h2>
+  <p>Terás um dia bom e leve.</p>
+  
+  <h2 id="05:00" class="current-time">05:00</h2>
+  <p>Continua a ter fé. Deus não te abandonará. Ele ou ela vai voltar. Falam bem de ti.</p>
+  
+  <h2 id="05:05" class="current-time">05:05</h2>
+  <p>Receberás um convite.</p>
+  
+  <h2 id="05:06" class="current-time">05:06</h2>
+  <p>Desejam um abraço teu.</p>
+  
+  <h2 id="05:10" class="current-time">05:10</h2>
+  <p>Esperam notícias tuas.</p>
+  
+  <h2 id="05:50" class="current-time">05:50</h2>
+  <p>Desentendimentos. Receberás uma surpresa.</p>
+  
+  <h2 id="05:55" class="current-time">05:55</h2>
+  <p>Azar no amor.</p>
+  
+  <h2 id="06:00" class="current-time">06:00</h2>
+  <p>O teu amor será correspondido. Aguarda.</p>
+  
+  <h2 id="06:03" class="current-time">06:03</h2>
+  <p>Casarás em breve.</p>
+  
+  <h2 id="06:06" class="current-time">06:06</h2>
+  <p>Farás de tudo pelo teu amor.</p>
+  
+  <h2 id="06:07" class="current-time">06:07</h2>
+  <p>Vais trair.</p>
+  
+  <h2 id="06:12" class="current-time">06:12</h2>
+  <p>Serás traído.</p>
+  
+  <h2 id="07:00" class="current-time">07:00</h2>
+  <p>Pensa em algo que nunca fizeste, mas gostarias. Agora, faz!</p>
+  
+  <h2 id="07:07" class="current-time">07:07</h2>
+  <p>Alguém gosta de ti. Um amigo ama-te em segredo há muito tempo sem que desconfies.</p>
+  
+  <h2 id="07:08" class="current-time">07:08</h2>
+  <p>O teu amor não é recíproco. Vais descobrir um segredo picante!</p>
+  
+  <h2 id="07:14" class="current-time">07:14</h2>
+  <p>Receberás uma chamada importante.</p>
+  
+  <h2 id="08:00" class="current-time">08:00</h2>
+  <p>Vão ocorrer algumas mudanças especiais na tua vida ao longo desta semana.</p>
+  
+  <h2 id="08:04" class="current-time">08:04</h2>
+  <p>Admiram-te.</p>
+  
+  <h2 id="08:08" class="current-time">08:08</h2>
+  <p>Hoje, ele pensou em ti, que sorte.</p>
+  
+  <h2 id="08:09" class="current-time">08:09</h2>
+  <p>O teu dia será um tédio. Ele ou ela pensou em ti.</p>
+  
+  <h2 id="08:16" class="current-time">08:16</h2>
+  <p>Pensam em ti.</p>
+  
+  <h2 id="09:00" class="current-time">09:00</h2>
+  <p>Uma pessoa está loucamente apaixonada por ti.</p>
+  
+  <h2 id="09:09" class="current-time">09:09</h2>
+  <p>Presentes do teu amor. Siga os teus sonhos, por mais difíceis que pareçam ser hoje. No futuro, olharás para trás agradecendo tanto esforço para chegar onde estás hoje.</p>
+  
+  <h2 id="09:10" class="current-time">09:10</h2>
+  <p>Ganharás atenção. Sonha contigo todos os dias.</p>
+  
+  <h2 id="09:18" class="current-time">09:18</h2>
+  <p>Brigas te esperam.</p>
+  
+  <h2 id="10:00" class="current-time">10:00</h2>
+  <p>A tua alma gémea vai surpreender-te. O amor na tua vida será firme e duradouro.</p>
+  
+  <h2 id="10:01" class="current-time">10:01</h2>
+  <p>Outra pessoa ama-te. A pessoa que amas está agora com outra pessoa.</p>
+  
+  <h2 id="10:05" class="current-time">10:05</h2>
+  <p>Verás o teu amor em breve.</p>
+  
+  <h2 id="10:10" class="current-time">10:10</h2>
+  <p>Alguém vai confessar-te os seus sentimentos. Acredita, o teu melhor amigo estará sempre contigo, para o que der e vier.</p>
+  
+  <h2 id="10:11" class="current-time">10:11</h2>
+  <p>O teu amor ficou solteiro. Vai com calma. Se não o/a vires, ele/a ficará triste.</p>
+  
+  <h2 id="10:20" class="current-time">10:20</h2>
+  <p>O teu amor vai deixar-te. Mudanças virão.</p>
+  
+  <h2 id="11:00" class="current-time">11:00</h2>
+  <p>Receberás um presente brevemente. Já agradeces a Deus pela tua vida hoje?</p>
+  
+  <h2 id="11:11" class="current-time">11:11</h2>
+  <p>Receberás uma chamada. Quem te ama de verdade está muito longe neste momento e quer-te bem perto dela.</p>
+  
+  <h2 id="11:12" class="current-time">11:12</h2>
+  <p>O teu amor está mais perto do que pensas. Talvez estejas a investir na pessoa errada.</p>
+  
+  <h2 id="11:22" class="current-time">11:22</h2>
+  <p>Sentem saudades de ti.</p>
+  
+  <h2 id="12:00" class="current-time">12:00</h2>
+  <p>Boa altura para fazer um desejo, ele irá concretizar-se. Ótima hora para refletir sobre a tua vida.</p>
+  
+  <h2 id="12:06" class="current-time">12:06</h2>
+  <p>Boas notícias virão.</p>
+  
+  <h2 id="12:12" class="current-time">12:12</h2>
+  <p>Novidades vão alegrar-te.</p>
+  
+  <h2 id="12:13" class="current-time">12:13</h2>
+  <p>Receberás más notícias. Ele ou ela é mais feliz contigo. Amou-te, ama-te e sempre te amará.</p>
+  
+  <h2 id="12:21" class="current-time">12:21</h2>
+  <p>Terás um bom dia. Ele ama-te.</p>
+  
+  <h2 id="12:22" class="current-time">12:22</h2>
+  <p>Estão a gostar de ti.</p>
+  
+  <h2 id="12:24" class="current-time">12:24</h2>
+  <p>Alguém irá confessar-se a ti.</p>
+  
+  <h2 id="12:34" class="current-time">12:34</h2>
+  <p>Talvez seja hora de fazer escolhas importantes. Segue os teus sonhos e conquista os teus objetivos!</p>
+  
+  <h2 id="13:00" class="current-time">13:00</h2>
+  <p>Amor virtual, contigo, dá certo. Terás uma surpresa.</p>
+  
+  <h2 id="13:01" class="current-time">13:01</h2>
+  <p>Querem-te perto.</p>
+  
+  <h2 id="13:13" class="current-time">13:13</h2>
+  <p>Terás um lindo namorado.</p>
+  
+  <h2 id="13:14" class="current-time">13:14</h2>
+  <p>Vai amar-te. Pensa em ti 24 horas por dia.</p>
+  
+  <h2 id="13:26" class="current-time">13:26</h2>
+  <p>Hoje é o teu dia de sorte.</p>
+  
+  <h2 id="13:31" class="current-time">13:31</h2>
+  <p>Algo não te irá agradar. Querem um abraço teu.</p>
+  
+  <h2 id="13:33" class="current-time">13:33</h2>
+  <p>Ele ama-te. Beijar-te-á em breve.</p>
+  
+  <h2 id="14:00" class="current-time">14:00</h2>
+  <p>O teu telemóvel vai tocar, receberás uma mensagem de uma pessoa especial. Amor correspondido.</p>
+  
+  <h2 id="14:02" class="current-time">14:02</h2>
+  <p>Terás um dia surpreendente.</p>
+
+  <h2 id="14:07" class="current-time">14:07</h2>
+<p>Ele ama-te muito, mas tu não sabes.</p>
+
+<h2 id="14:14" class="current-time">14:14</h2>
+<p>É hora de investir naquela pessoa especial. Fica atento, alguém não gosta de ti e quer-te mal. Cuida-te.</p>
+
+<h2 id="14:15" class="current-time">14:15</h2>
+<p>Não troques o certo pelo duvidoso. Ontem, ninguém quis falar contigo. Riram de ti hoje.</p>
+
+<h2 id="14:28" class="current-time">14:28</h2>
+<p>Ganharás presentes.</p>
+
+<h2 id="14:41" class="current-time">14:41</h2>
+<p>Perda de algo.</p>
+
+<h2 id="14:44" class="current-time">14:44</h2>
+<p>Gostavam de ti.</p>
+
+<h2 id="15:00" class="current-time">15:00</h2>
+<p>Vais poder finalmente descansar por algum tempo. Aquele amor vai pedir-te em casamento/namoro. Brigas em breve.</p>
+
+<h2 id="15:03" class="current-time">15:03</h2>
+<p>Notícias ruins chegaram.</p>
+
+<h2 id="15:15" class="current-time">15:15</h2>
+<p>Alguém está a flertar contigo. Receberás um elogio especial. Alguém ama-te, chora por ti.</p>
+
+<h2 id="15:16" class="current-time">15:16</h2>
+<p>Ignoram-te. És o amor da vida dele/a.</p>
+
+<h2 id="15:30" class="current-time">15:30</h2>
+<p>Amor correspondido.</p>
+
+<h2 id="15:51" class="current-time">15:51</h2>
+<p>Reencontrarás um velho amigo. Querem-te por perto.</p>
+
+<h2 id="16:00" class="current-time">16:00</h2>
+<p>A união familiar estará forte.</p>
+
+<h2 id="16:04" class="current-time">16:04</h2>
+<p>Aquele que pensas ser teu amigo quer-te.</p>
+
+<h2 id="16:08" class="current-time">16:08</h2>
+<p>Encontro próximo.</p>
+
+<h2 id="16:16" class="current-time">16:16</h2>
+<p>Querem loucamente um beijo teu, em segredo. Alguém pensa em ti.</p>
+
+<h2 id="16:17" class="current-time">16:17</h2>
+<p>Falaram mal de ti.</p>
+
+<h2 id="16:32" class="current-time">16:32</h2>
+<p>Querem-te em segredo.</p>
+
+<h2 id="17:00" class="current-time">17:00</h2>
+<p>Uma viagem (ou passeio) trará grandes surpresas. Rejeitam-te.</p>
+
+<h2 id="17:05" class="current-time">17:05</h2>
+<p>Não te convidaram.</p>
+
+<h2 id="17:17" class="current-time">17:17</h2>
+<p>Não pensam em ti desse jeito. O dono/a dos teus pensamentos possui um sentimento recíproco por ti. Sorri para a vida, não deixes a tristeza jamais abater-te.</p>
+
+<h2 id="17:18" class="current-time">17:18</h2>
+<p>Sorriram por ti.</p>
+
+<h2 id="17:34" class="current-time">17:34</h2>
+<p>Medo de te perder.</p>
+
+<h2 id="18:00" class="current-time">18:00</h2>
+<p>Aquela pessoa que menos esperas está a pensar em ti.</p>
+
+<h2 id="18:06" class="current-time">18:06</h2>
+<p>Deseja-te.</p>
+
+<h2 id="18:09" class="current-time">18:09</h2>
+<p>Ele traiu-te.</p>
+
+<h2 id="18:18" class="current-time">18:18</h2>
+<p>Sente saudades de ti, porque ama-te.</p>
+
+<h2 id="18:19" class="current-time">18:19</h2>
+<p>Esqueceram-se de ti.</p>
+
+<h2 id="18:36" class="current-time">18:36</h2>
+<p>Ama-te.</p>
+
+<h2 id="19:00" class="current-time">19:00</h2>
+<p>Uma pessoa importante na tua vida espera por uma mensagem tua. Algo vai agradar-te.</p>
+
+<h2 id="19:07" class="current-time">19:07</h2>
+<p>Quer sentir o teu cheiro.</p>
+
+<h2 id="19:19" class="current-time">19:19</h2>
+<p>Terás quem desejas. Os teus dias serão repletos de alegrias.</p>
+
+<h2 id="19:20" class="current-time">19:20</h2>
+<p>Surpreenderás alguém. Está com outra pessoa, mas ama-te!</p>
+
+<h2 id="19:38" class="current-time">19:38</h2>
+<p>Fofocas sobre ti.</p>
+
+<h2 id="20:00" class="current-time">20:00</h2>
+<p>Faz dois pedidos. Estão a falar de ti. Cuida das tuas amizades.</p>
+
+<h2 id="20:02" class="current-time">20:02</h2>
+<p>Encontrarás algo que julgavas perdido. Sentem saudades de ti. Azar no amor.</p>
+
+<h2 id="20:08" class="current-time">20:08</h2>
+<p>Desistiram de ti.</p>
+
+<h2 id="20:10" class="current-time">20:10</h2>
+<p>Ele será teu.</p>
+
+<h2 id="20:20" class="current-time">20:20</h2>
+<p>União no amor. Alguns dias bons virão.</p>
+
+<h2 id="20:21" class="current-time">20:21</h2>
+<p>Amam-te e a mais 10. Encontro amanhã.</p>
+
+<h2 id="20:40" class="current-time">20:40</h2>
+<p>O fim está próximo (Pode ser o fim de um ciclo, relacionamento, etc).</p>
+
+<h2 id="21:00" class="current-time">21:00</h2>
+<p>Faz um elogio a alguém.</p>
+
+<h2 id="21:09" class="current-time">21:09</h2>
+<p>Aquela amiga trair-te-á.</p>
+
+<h2 id="21:12" class="current-time">21:12</h2>
+<p>Deseja-te o bem.</p>
+
+<h2 id="21:21" class="current-time">21:21</h2>
+<p>Vais perceber que outro pode ser aquele alguém. Verás a pessoa amada logo.</p>
+
+<h2 id="21:22" class="current-time">21:22</h2>
+<p>Ele não te esqueceu. Sonha com o teu sorriso.</p>
+
+<h2 id="21:42" class="current-time">21:42</h2>
+<p>Os teus segredos serão descobertos.</p>
+
+<h2 id="22:00" class="current-time">22:00</h2>
+<p>Alguém está à tua espera no chat.</p>
+
+<h2 id="22:10" class="current-time">22:10</h2>
+<p>Terás um namorado.</p>
+
+<h2 id="22:11" class="current-time">22:11</h2>
+<p>Morte próxima. (Isso não significa a tua morte, é no sentido figurado)</p>
+
+<h2 id="22:22" class="current-time">22:22</h2>
+<p>Quem te ama está sempre ao teu lado. Junto de ti estará quem amas.</p>
+
+<h2 id="22:23" class="current-time">22:23</h2>
+<p>O teu amor é um jogo. Amor correspondido.</p>
+
+<h2 id="22:44" class="current-time">22:44</h2>
+<p>Sorte no Amor.</p>
+
+<h2 id="23:00" class="current-time">23:00</h2>
+<p>O amanhã será um novo dia. Futuro risonho. Um bom tempo sem essa pessoa fará mal. Precisam falar contigo.</p>
+
+<h2 id="23:11" class="current-time">23:11</h2>
+<p>Querem um abraço.</p>
+
+<h2 id="23:23" class="current-time">23:23</h2>
+<p>Não serás traído(a).</p>
+
+<h2 id="23:24" class="current-time">23:24</h2>
+<p>Elogiaram-te.</p>
+
+<h2 id="23:32" class="current-time">23:32</h2>
+<p>Amanhã será um dia bom. Zombaria. Choram por ti.</p>
+
+<h2 id="23:46" class="current-time">23:46</h2>
+<p>Falam mal de ti.</p>
+
+
+</div>
+
+<div id="header-art">
+  <!-- Adicione aqui os elementos gráficos no início da página -->
+</div>
+
+<div id="footer-art">
+  <!-- Adicione aqui os elementos gráficos no fim da página -->
+</div>
+
+<script>
+  // Exemplo de animação de relógio com SVG
+  animateClock("left-clock", true);
+  animateClock("right-clock", false);
+
+  // Rola automaticamente para a hora atual
+  scrollToCurrentHour();
+
+  // Atualiza o relógio digital
+  updateDigitalClock();
+
+  function animateClock(clockId, highlightCurrentHour) {
+    const clock = document.getElementById(clockId);
+    const circle = clock.querySelector('circle');
+    const hourHand = clock.querySelector('.hour-hand');
+    const minuteHand = clock.querySelector('.minute-hand');
+    const radius = parseFloat(circle.getAttribute('r'));
+    const centerX = parseFloat(circle.getAttribute('cx'));
+    const centerY = parseFloat(circle.getAttribute('cy'));
+
+    // Adicione aqui a lógica de animação do relógio
+  }
+
+  function scrollToCurrentHour() {
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours();
+    const currentMinute = currentDate.getMinutes();
+
+    const currentHourId = `${currentHour}:${currentMinute < 10 ? '0' : ''}${currentMinute}`;
+    const currentHourElement = document.getElementById(currentHourId);
+
+    if (currentHourElement) {
+      currentHourElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function updateDigitalClock() {
+    const currentDate = new Date();
+    const hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+
+    const digitalClock = document.getElementById('digital-clock');
+    digitalClock.textContent = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+
+    // Atualiza o relógio digital a cada minuto
+    setTimeout(updateDigitalClock, 60000);
+  }
+</script>
+
+</body>
+</html>
