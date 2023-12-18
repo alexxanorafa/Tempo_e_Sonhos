@@ -619,64 +619,44 @@
 </div>
 
 <script>
-  // Animação do relógio com SVG
-  animateClock("left-clock", true);
-  animateClock("right-clock", false);
+    animateClock("clock", true);
+    updateDigitalClock();
 
-  // Rola automaticamente para a hora atual
-  scrollToCurrentHour();
+    function animateClock(clockId, highlightCurrentHour) {
+      const clock = document.getElementById(clockId);
+      const hourHand = clock.querySelector('.hour-hand');
+      const minuteHand = clock.querySelector('.minute-hand');
 
-  // Atualiza o relógio digital
-  updateDigitalClock();
-
-  function animateClock(clockId, highlightCurrentHour) {
-    const clock = document.getElementById(clockId);
-    const hourHand = clock.querySelector('.hour-hand');
-    const minuteHand = clock.querySelector('.minute-hand');
-
-    // Obter a hora atual
-    const currentDate = new Date();
-    const hours = currentDate.getHours();
-    const minutes = currentDate.getMinutes();
-
-    // Calcular os ângulos para as mãos do relógio
-    const hourAngle = (hours % 12 + minutes / 60) * 360 / 12;
-    const minuteAngle = minutes * 360 / 60;
-
-    // Aplicar transformações para girar as mãos do relógio
-    hourHand.style.transform = `rotate(${hourAngle}deg)`;
-    minuteHand.style.transform = `rotate(${minuteAngle}deg)`;
-
-    // Adicione aqui lógica adicional, se necessário
-  }
-
-  function scrollToCurrentHour() {
-    const currentDate = new Date();
-    const currentHour = currentDate.getHours();
-    const currentMinute = currentDate.getMinutes();
-    const currentHourId = `${currentHour}:${currentMinute < 10 ? '0' : ''}${currentMinute}`;
-    const currentHourElement = document.getElementById(currentHourId);
-
-    if (currentHourElement) {
-      currentHourElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-
-  function updateDigitalClock() {
-    const digitalClock = document.getElementById('digital-clock');
-
-    function updateClock() {
       const currentDate = new Date();
       const hours = currentDate.getHours();
       const minutes = currentDate.getMinutes();
-      digitalClock.textContent = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+
+      // Calcular os ângulos para as mãos do relógio com um toque surrealista
+      const hourAngle = (hours % 12 + minutes / 60) * 360 / 12 + 90; // Adiciona 90 graus para um toque surrealista
+      const minuteAngle = minutes * 360 / 60 + 180; // Adiciona 180 graus para um toque surrealista
+
+      // Aplicar transformações para girar as mãos do relógio
+      hourHand.style.transform = `translateX(-50%) rotate(${hourAngle}deg)`;
+      minuteHand.style.transform = `translateX(-50%) rotate(${minuteAngle}deg)`;
+
+      // Adicione aqui lógica adicional, se necessário
     }
 
-    // Atualiza o relógio digital a cada minuto
-    updateClock();
-    setInterval(updateClock, 60000);
-  }
-</script>
+    function updateDigitalClock() {
+      const digitalClock = document.getElementById('digital-clock');
+
+      function updateClock() {
+        const currentDate = new Date();
+        const hours = currentDate.getHours();
+        const minutes = currentDate.getMinutes();
+        digitalClock.textContent = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+      }
+
+      // Atualiza o relógio digital a cada minuto
+      updateClock();
+      setInterval(updateClock, 60000);
+    }
+  </script>
 
 </body>
 </html>
