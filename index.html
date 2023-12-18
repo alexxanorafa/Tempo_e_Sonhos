@@ -619,7 +619,7 @@
 </div>
 
 <script>
-  // Exemplo de animação de relógio com SVG
+  // Animação do relógio com SVG
   animateClock("left-clock", true);
   animateClock("right-clock", false);
 
@@ -631,21 +631,29 @@
 
   function animateClock(clockId, highlightCurrentHour) {
     const clock = document.getElementById(clockId);
-    const circle = clock.querySelector('circle');
     const hourHand = clock.querySelector('.hour-hand');
     const minuteHand = clock.querySelector('.minute-hand');
-    const radius = parseFloat(circle.getAttribute('r'));
-    const centerX = parseFloat(circle.getAttribute('cx'));
-    const centerY = parseFloat(circle.getAttribute('cy'));
 
-    // Adicione aqui a lógica de animação do relógio
+    // Obter a hora atual
+    const currentDate = new Date();
+    const hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+
+    // Calcular os ângulos para as mãos do relógio
+    const hourAngle = (hours % 12 + minutes / 60) * 360 / 12;
+    const minuteAngle = minutes * 360 / 60;
+
+    // Aplicar transformações para girar as mãos do relógio
+    hourHand.style.transform = `rotate(${hourAngle}deg)`;
+    minuteHand.style.transform = `rotate(${minuteAngle}deg)`;
+
+    // Adicione aqui lógica adicional, se necessário
   }
 
   function scrollToCurrentHour() {
     const currentDate = new Date();
     const currentHour = currentDate.getHours();
     const currentMinute = currentDate.getMinutes();
-
     const currentHourId = `${currentHour}:${currentMinute < 10 ? '0' : ''}${currentMinute}`;
     const currentHourElement = document.getElementById(currentHourId);
 
@@ -655,18 +663,20 @@
   }
 
   function updateDigitalClock() {
-    const currentDate = new Date();
-    const hours = currentDate.getHours();
-    const minutes = currentDate.getMinutes();
-
     const digitalClock = document.getElementById('digital-clock');
-    digitalClock.textContent = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+
+    function updateClock() {
+      const currentDate = new Date();
+      const hours = currentDate.getHours();
+      const minutes = currentDate.getMinutes();
+      digitalClock.textContent = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+    }
 
     // Atualiza o relógio digital a cada minuto
-    setTimeout(updateDigitalClock, 60000);
+    updateClock();
+    setInterval(updateClock, 60000);
   }
 </script>
-
 
 </body>
 </html>
