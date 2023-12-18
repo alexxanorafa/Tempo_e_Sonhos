@@ -563,9 +563,9 @@
 </div>
 
 <script>
-  // Exemplo de animação de relógio com SVG
-  animateClock("left-clock", true);
-  animateClock("right-clock", false);
+  // Chame a função com os IDs dos elementos do relógio e do texto
+  animateSurrealClock("left-clock", "left-surreal-text");
+  animateSurrealClock("right-clock", "right-surreal-text");
 
   // Rola automaticamente para a hora atual
   scrollToCurrentHour();
@@ -581,31 +581,26 @@
     const text = document.getElementById(textId);
 
     function updateClock() {
-        const now = new Date();
-        const hours = now.getHours() % 12;
-        const minutes = now.getMinutes();
-        const seconds = now.getSeconds();
+      const now = new Date();
+      const hours = now.getHours() % 12;
+      const minutes = now.getMinutes();
+      const seconds = now.getSeconds();
 
-        const hourDeg = (hours + minutes / 60) * 30;
-        const minuteDeg = (minutes + seconds / 60) * 6;
-        const secondDeg = seconds * 6;
+      const hourDeg = (hours + minutes / 60) * 30;
+      const minuteDeg = (minutes + seconds / 60) * 6;
+      const secondDeg = seconds * 6;
 
-        hourHand.style.transform = `rotate(${hourDeg}deg)`;
-        minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
-        secondHand.style.transform = `rotate(${secondDeg}deg)`;
+      hourHand.style.transform = `rotate(${hourDeg}deg)`;
+      minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
+      secondHand.style.transform = `rotate(${secondDeg}deg)`;
 
-        // Adicione a lógica surrealista aqui, por exemplo, faça o texto parecer derretido
-        const textScale = 1 + Math.sin(now.getTime() / 1000) * 0.1;
-        text.style.transform = `scale(${textScale})`;
+      // Adicione a lógica surrealista aqui, por exemplo, faça o texto parecer derretido
+      const textScale = 1 + Math.sin(now.getTime() / 1000) * 0.1;
+      text.style.transform = `scale(${textScale})`;
     }
 
     setInterval(updateClock, 1000);
     updateClock(); // Para posicionar corretamente as mãos no carregamento da página
-}
-
-// Chame a função com os IDs dos elementos do relógio e do texto
-animateSurrealClock('clock', 'surreal-text');
-    // Adicione aqui a lógica de animação do relógio
   }
 
   function scrollToCurrentHour() {
@@ -633,6 +628,7 @@ animateSurrealClock('clock', 'surreal-text');
     setTimeout(updateDigitalClock, 60000);
   }
 </script>
+
 
 </body>
 </html>
