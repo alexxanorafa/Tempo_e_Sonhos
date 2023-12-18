@@ -563,9 +563,9 @@
 </div>
 
 <script>
-  // Chame a função com os IDs dos elementos do relógio e do texto
-  animateSurrealClock("left-clock", "left-surreal-text");
-  animateSurrealClock("right-clock", "right-surreal-text");
+  // Exemplo de animação de relógio com SVG
+  animateClock("left-clock", true);
+  animateClock("right-clock", false);
 
   // Rola automaticamente para a hora atual
   scrollToCurrentHour();
@@ -573,34 +573,16 @@
   // Atualiza o relógio digital
   updateDigitalClock();
 
-  function animateSurrealClock(clockId, textId) {
+  function animateClock(clockId, highlightCurrentHour) {
     const clock = document.getElementById(clockId);
+    const circle = clock.querySelector('circle');
     const hourHand = clock.querySelector('.hour-hand');
     const minuteHand = clock.querySelector('.minute-hand');
-    const secondHand = clock.querySelector('.second-hand');
-    const text = document.getElementById(textId);
+    const radius = parseFloat(circle.getAttribute('r'));
+    const centerX = parseFloat(circle.getAttribute('cx'));
+    const centerY = parseFloat(circle.getAttribute('cy'));
 
-    function updateClock() {
-      const now = new Date();
-      const hours = now.getHours() % 12;
-      const minutes = now.getMinutes();
-      const seconds = now.getSeconds();
-
-      const hourDeg = (hours + minutes / 60) * 30;
-      const minuteDeg = (minutes + seconds / 60) * 6;
-      const secondDeg = seconds * 6;
-
-      hourHand.style.transform = `rotate(${hourDeg}deg)`;
-      minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
-      secondHand.style.transform = `rotate(${secondDeg}deg)`;
-
-      // Adicione a lógica surrealista aqui, por exemplo, faça o texto parecer derretido
-      const textScale = 1 + Math.sin(now.getTime() / 1000) * 0.1;
-      text.style.transform = `scale(${textScale})`;
-    }
-
-    setInterval(updateClock, 1000);
-    updateClock(); // Para posicionar corretamente as mãos no carregamento da página
+    // Adicione aqui a lógica de animação do relógio
   }
 
   function scrollToCurrentHour() {
