@@ -105,6 +105,7 @@
     <line class="minute-hand" x1="50" y1="50" x2="50" y2="20" />
   </svg>
   <div class="hour" id="right-hour" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12px; color: #000;"></div>
+</div>
 
 <div id="content">
   <h1>Exploração do Tempo e dos Sonhos</h1>
@@ -669,13 +670,11 @@ function scrollToCurrentHour() {
   const currentHour = currentDate.getHours();
   const currentMinute = currentDate.getMinutes();
 
-  const currentHourClass = `${currentHour}:${currentMinute < 10 ? '0' : ''}${currentMinute}`;
-  const currentHourElements = document.querySelectorAll(`.${currentHourClass}`);
+  const currentHourId = `${currentHour}:${currentMinute < 10 ? '0' : ''}${currentMinute}`;
+  const currentHourElement = document.getElementById(currentHourId);
 
-  if (currentHourElements.length > 0) {
-    currentHourElements.forEach(element => {
-      element.scrollIntoView({ behavior: 'smooth' });
-    });
+  if (currentHourElement) {
+    currentHourElement.scrollIntoView({ behavior: 'smooth' });
   }
 }
 
