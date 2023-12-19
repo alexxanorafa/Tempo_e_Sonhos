@@ -78,12 +78,12 @@
     }
 
     .current-hour {
-      fill: #dbce82; /* Dourado para a hora atual */
+      fill: #c7bc7f; /* Dourado para a hora atual */
     }
 
     .digital-clock {
       font-size: 1.5em;
-      color: #2d2d44; /* Azul para o relógio digital */
+      color: #07495f; /* Azul para o relógio digital */
     }
   </style>
 </head>
@@ -622,8 +622,11 @@
 animateClock("left-clock", true);
 animateClock("right-clock", false);
 
-// Rola automaticamente para a hora atual
-scrollToCurrentHour();
+// Espera o DOM ser carregado antes de chamar a função scrollToCurrentHour
+document.addEventListener('DOMContentLoaded', () => {
+  // Rola automaticamente para a hora atual
+  scrollToCurrentHour();
+});
 
 // Atualiza o relógio digital
 updateDigitalClock();
@@ -665,7 +668,7 @@ function animateClock(clockId, highlightCurrentHour) {
   setTimeout(() => animateClock(clockId, highlightCurrentHour), 1000);
 }
 
-/*function scrollToCurrentHour() {
+function scrollToCurrentHour() {
   const currentDate = new Date();
   const currentHour = currentDate.getHours();
   const currentMinute = currentDate.getMinutes();
@@ -675,7 +678,7 @@ function animateClock(clockId, highlightCurrentHour) {
 
   if (currentHourElement) {
     currentHourElement.scrollIntoView({ behavior: 'smooth' });
-  }*/
+  }
 }
 
 function updateDigitalClock() {
