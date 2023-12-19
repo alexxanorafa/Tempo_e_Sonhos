@@ -665,7 +665,7 @@ function animateClock(clockId, highlightCurrentHour) {
   setTimeout(() => animateClock(clockId, highlightCurrentHour), 1000);
 }
 
-function scrollToCurrentHour() {
+/*function scrollToCurrentHour() {
   const currentDate = new Date();
   const currentHour = currentDate.getHours();
   const currentMinute = currentDate.getMinutes();
@@ -675,7 +675,7 @@ function scrollToCurrentHour() {
 
   if (currentHourElement) {
     currentHourElement.scrollIntoView({ behavior: 'smooth' });
-  }
+  }*/
 }
 
 function updateDigitalClock() {
