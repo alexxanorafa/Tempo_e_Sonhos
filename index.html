@@ -62,12 +62,12 @@
       font-family: monospace;
       font-size: 1.5em;
       margin-top: 20px;
-      color: #999;
+      color: #333;
     }
 
     .clock {
       fill: none;
-      stroke: #07495f; /* Azul para as linhas do relógio analógico */
+      stroke: #333; /* Azul para as linhas do relógio analógico */
       stroke-width: 2;
     }
 
@@ -82,9 +82,30 @@
     }
 
     .digital-clock {
-      font-size: 1.5em;
-      color: #07495f; /* Azul para o relógio digital */
-    }
+  font-size: 2em;
+  color: #07495f;
+  font-family: 'Courier New', monospace; /* Usando uma fonte monoespaçada para manter a consistência na transformação */
+  position: relative;
+  animation: melt 5s infinite;
+}
+
+@keyframes melt {
+  0% {
+    transform: scaleY(1);
+  }
+  25% {
+    transform: scaleY(0.8);
+  }
+  50% {
+    transform: scaleY(1.2);
+  }
+  75% {
+    transform: scaleY(0.9);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
   </style>
 </head>
 <body>
