@@ -622,11 +622,8 @@
 animateClock("left-clock", true);
 animateClock("right-clock", false);
 
-// Espera o DOM ser carregado antes de chamar a função scrollToCurrentHour
-document.addEventListener('DOMContentLoaded', () => {
-  // Rola automaticamente para a hora atual
-  scrollToCurrentHour();
-});
+// Rola automaticamente para a hora atual
+scrollToCurrentHour();
 
 // Atualiza o relógio digital
 updateDigitalClock();
