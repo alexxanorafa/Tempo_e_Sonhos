@@ -33,8 +33,8 @@
       color: #666;
     }
 
-    #left-bar,
-    #right-bar {
+    .left-bar,
+    .right-bar {
       position: fixed;
       top: 0;
       height: 100%;
@@ -43,45 +43,45 @@
       z-index: -1;
     }
 
-    #left-bar {
+    .left-bar {
       left: 0;
     }
 
-    #right-bar {
+    .right-bar {
       right: 0;
     }
 
-    #content {
+    .content {
       z-index: 1;
       background-color: #fff;
       padding: 20px;
     }
 
-    #header-art,
-    #footer-art {
+    .header-art,
+    .footer-art {
       font-family: monospace;
       font-size: 1.5em;
       margin-top: 20px;
       color: #999;
     }
 
-    #clock {
+    .clock {
       fill: none;
       stroke: #999;
       stroke-width: 2;
     }
 
-    #hour-hand,
-    #minute-hand {
+    .hour-hand,
+    .minute-hand {
       stroke: #333;
       stroke-width: 4;
     }
 
-    #current-hour {
+    .current-hour {
       fill: #FF0000; /* Cor de destaque para a hora atual */
     }
 
-    #digital-clock {
+    .digital-clock {
       font-size: 1.5em;
       color: #333;
     }
@@ -618,52 +618,77 @@
 </div>
 
 <script>
-  // Exemplo de animação de relógio com SVG
-  animateClock("left-clock", true);
-  animateClock("right-clock", false);
+// Exemplo de animação de relógio com SVG
+animateClock("left-clock", true);
+animateClock("right-clock", false);
 
-  // Rola automaticamente para a hora atual
-  scrollToCurrentHour();
+// Rola automaticamente para a hora atual
+scrollToCurrentHour();
 
-  // Atualiza o relógio digital
-  updateDigitalClock();
+// Atualiza o relógio digital
+updateDigitalClock();
 
-  function animateClock(clockId, highlightCurrentHour) {
-    const clock = document.getElementById(clockId);
-    const circle = clock.querySelector('circle');
-    const hourHand = clock.querySelector('.hour-hand');
-    const minuteHand = clock.querySelector('.minute-hand');
-    const radius = parseFloat(circle.getAttribute('r'));
-    const centerX = parseFloat(circle.getAttribute('cx'));
-    const centerY = parseFloat(circle.getAttribute('cy'));
+function animateClock(clockId, highlightCurrentHour) {
+  const clock = document.getElementById(clockId);
+  const circle = clock.querySelector('circle');
+  const hourHand = clock.querySelector('.hour-hand');
+  const minuteHand = clock.querySelector('.minute-hand');
+  const radius = parseFloat(circle.getAttribute('r'));
+  const centerX = parseFloat(circle.getAttribute('cx'));
+  const centerY = parseFloat(circle.getAttribute('cy'));
 
-    // Adicione aqui a lógica de animação do relógio
-  }
+  const currentDate = new Date();
+  const hours = currentDate.getHours() % 12; // Garante que estamos no formato de 12 horas
+  const minutes = currentDate.getMinutes();
+  const seconds = currentDate.getSeconds();
 
-  function scrollToCurrentHour() {
-    const currentDate = new Date();
-    const currentHour = currentDate.getHours();
-    const currentMinute = currentDate.getMinutes();
+  const hourAngle = (360 / 12) * (hours + minutes / 60); // Ângulo para a hora
+  const minuteAngle = (360 / 60) * minutes + (360 / 60) * (seconds / 60); // Ângulo para os minutos
 
-    const currentHourId = `${currentHour}:${currentMinute < 10 ? '0' : ''}${currentMinute}`;
-    const currentHourElement = document.getElementById(currentHourId);
+  // Adicione uma distorção surreal aos ponteiros
+  const distortedHourAngle = hourAngle + Math.sin(seconds * (Math.PI / 30)) * 10;
+  const distortedMinuteAngle = minuteAngle + Math.cos(seconds * (Math.PI / 30)) * 5;
 
+  // Aplica a transformação de rotação aos ponteiros
+  hourHand.setAttribute('transform', `rotate(${distortedHourAngle} ${centerX} ${centerY})`);
+  minuteHand.setAttribute('transform', `rotate(${distortedMinuteAngle} ${centerX} ${centerY})`);
+
+  // Adiciona destaque à hora atual, se necessário
+  if (highlightCurrentHour) {
+    const currentHourElement = document.getElementById(`${hours}:${minutes < 10 ? '0' : ''}${minutes}`);
     if (currentHourElement) {
-      currentHourElement.scrollIntoView({ behavior: 'smooth' });
+      currentHourElement.classList.add('current-hour');
     }
   }
 
-  function updateDigitalClock() {
-    const currentDate = new Date();
-    const hours = currentDate.getHours();
-    const minutes = currentDate.getMinutes();
+  // Chama a função novamente a cada segundo
+  setTimeout(() => animateClock(clockId, highlightCurrentHour), 1000);
+}
 
-    const digitalClock = document.getElementById('digital-clock');
-    digitalClock.textContent = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+function scrollToCurrentHour() {
+  const currentDate = new Date();
+  const currentHour = currentDate.getHours();
+  const currentMinute = currentDate.getMinutes();
 
-    // Atualiza o relógio digital a cada minuto
-    setTimeout(updateDigitalClock, 60000);
+  const currentHourId = `${currentHour}:${currentMinute < 10 ? '0' : ''}${currentMinute}`;
+  const currentHourElement = document.getElementById(currentHourId);
+
+  if (currentHourElement) {
+    currentHourElement.scrollIntoView({ behavior: 'smooth' });
   }
+}
+
+function updateDigitalClock() {
+  const currentDate = new Date();
+  const hours = currentDate.getHours();
+  const minutes = currentDate.getMinutes();
+
+  const digitalClock = document.getElementById('digital-clock');
+  digitalClock.textContent = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+
+  // Atualiza o relógio digital a cada minuto
+  setTimeout(updateDigitalClock, 60000);
+}
 </script>
 
 </body>
