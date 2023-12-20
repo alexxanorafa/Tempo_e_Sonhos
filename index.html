@@ -49,6 +49,9 @@
       width: 10%;
       background-color: #34495e;
       z-index: -1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     #left-bar {
@@ -124,7 +127,15 @@
         transform: scaleY(1);
       }
     }
-    /* ... (restante do estilo) */
+
+    @media only screen and (max-width: 600px) {
+      .clock {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      /* Adapte outros estilos conforme necessário para dispositivos móveis */
+    }
   </style>
 </head>
 
@@ -137,22 +148,22 @@
   <main>
 
     <div id="left-bar" class="clock">
-        <svg class="clock" id="left-clock" width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="40" fill="#fff" />
-            <line class="hour-hand" x1="50" y1="50" x2="50" y2="30" />
-            <line class="minute-hand" x1="50" y1="50" x2="50" y2="20" />
-          </svg>
-          <div class="hour" id="left-hour" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12px; color: #2c3e50;"></div>
-        </div>
+      <svg class="clock" id="left-clock" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" fill="#fff" />
+        <line class="hour-hand" x1="50" y1="50" x2="50" y2="30" />
+        <line class="minute-hand" x1="50" y1="50" x2="50" y2="20" />
+      </svg>
+      <div class="hour" id="left-hour" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12px; color: #2c3e50;"></div>
+    </div>
 
     <div id="right-bar" class="clock">
-        <svg class="clock" id="right-clock" width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="40" fill="#fff" />
-            <line class="hour-hand" x1="50" y1="50" x2="50" y2="30" />
-            <line class="minute-hand" x1="50" y1="50" x2="50" y2="20" />
-          </svg>
-          <div class="hour" id="right-hour" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12px; color: #2c3e50;"></div>
-        </div>
+      <svg class="clock" id="right-clock" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="40" fill="#fff" />
+        <line class="hour-hand" x1="50" y1="50" x2="50" y2="30" />
+        <line class="minute-hand" x1="50" y1="50" x2="50" y2="20" />
+      </svg>
+      <div class="hour" id="right-hour" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 12px; color: #2c3e50;"></div>
+    </div>
 
     <div id="content" class="content">
       <h1>Exploração do Tempo e dos Sonhos</h1>
@@ -391,11 +402,8 @@
   <p>Comunicativa e social, traz sucesso e colaborações. Cautela contra hipocrisia. Irradia alegria, felicidade e apreciação nas relações.</p>
   
   <h2 id="11:22" class="current-time">11:22</h2>
-  <p>Sentem saudades de si. Pode ser interpretada como um aviso para estar atento à tua intuição e procurar formas de servir aos outros com compaixão e sabedoria. Este momento pode representar uma oportunidade para crescimento espiritual e para atuar como guia ou mentor para aqueles à tua volta.</p>
-
-  <h2 id="11:33" class="current-time">11:33</h2>
-  <p>sugere um momento propício para se sintonizar com a intuição, buscar crescimento espiritual e orientar-se para servir aos outros de maneira compassiva e sábia. Pode ser interpretada como um chamado para agir como um guia ou mentor, promovendo a elevação espiritual tanto em si mesmo quanto naqueles ao seu redor.</p>
-      
+  <p>Sentem saudades de si.</p>
+  
   <h2 id="12:00" class="current-time">12:00</h2>
   <p>Boa altura para fazer um desejo, ele irá concretizar-se. Ótima hora para refletir sobre a sua vida.</p>
   
@@ -668,76 +676,76 @@
   <script>
     // Exemplo de animação de relógio com SVG
     animateClock("left-clock", true);
-animateClock("right-clock", false);
+    animateClock("right-clock", false);
 
-// Rola automaticamente para a hora atual
-scrollToCurrentHour();
+    // Rola automaticamente para a hora atual
+    scrollToCurrentHour();
 
-// Atualiza o relógio digital
-updateDigitalClock();
+    // Atualiza o relógio digital
+    updateDigitalClock();
 
-function animateClock(clockId, highlightCurrentHour) {
-  const clock = document.getElementById(clockId);
-  const circle = clock.querySelector('circle');
-  const hourHand = clock.querySelector('.hour-hand');
-  const minuteHand = clock.querySelector('.minute-hand');
-  const radius = parseFloat(circle.getAttribute('r'));
-  const centerX = parseFloat(circle.getAttribute('cx'));
-  const centerY = parseFloat(circle.getAttribute('cy'));
+    function animateClock(clockId, highlightCurrentHour) {
+      const clock = document.getElementById(clockId);
+      const circle = clock.querySelector('circle');
+      const hourHand = clock.querySelector('.hour-hand');
+      const minuteHand = clock.querySelector('.minute-hand');
+      const radius = parseFloat(circle.getAttribute('r'));
+      const centerX = parseFloat(circle.getAttribute('cx'));
+      const centerY = parseFloat(circle.getAttribute('cy'));
 
-  const currentDate = new Date();
-  const hours = currentDate.getHours() % 12; // Garante que estamos no formato de 12 horas
-  const minutes = currentDate.getMinutes();
-  const seconds = currentDate.getSeconds();
+      const currentDate = new Date();
+      const hours = currentDate.getHours() % 12; // Garante que estamos no formato de 12 horas
+      const minutes = currentDate.getMinutes();
+      const seconds = currentDate.getSeconds();
 
-  const hourAngle = (360 / 12) * (hours + minutes / 60); // Ângulo para a hora
-  const minuteAngle = (360 / 60) * minutes + (360 / 60) * (seconds / 60); // Ângulo para os minutos
+      const hourAngle = (360 / 12) * (hours + minutes / 60); // Ângulo para a hora
+      const minuteAngle = (360 / 60) * minutes + (360 / 60) * (seconds / 60); // Ângulo para os minutos
 
-  // Adicione uma distorção surreal aos ponteiros
-  const distortedHourAngle = hourAngle + Math.sin(seconds * (Math.PI / 30)) * 10;
-  const distortedMinuteAngle = minuteAngle + Math.cos(seconds * (Math.PI / 30)) * 5;
+      // Adicione uma distorção surreal aos ponteiros
+      const distortedHourAngle = hourAngle + Math.sin(seconds * (Math.PI / 30)) * 10;
+      const distortedMinuteAngle = minuteAngle + Math.cos(seconds * (Math.PI / 30)) * 5;
 
-  // Aplica a transformação de rotação aos ponteiros
-  hourHand.setAttribute('transform', `rotate(${distortedHourAngle} ${centerX} ${centerY})`);
-  minuteHand.setAttribute('transform', `rotate(${distortedMinuteAngle} ${centerX} ${centerY})`);
+      // Aplica a transformação de rotação aos ponteiros
+      hourHand.setAttribute('transform', `rotate(${distortedHourAngle} ${centerX} ${centerY})`);
+      minuteHand.setAttribute('transform', `rotate(${distortedMinuteAngle} ${centerX} ${centerY})`);
 
-  // Adiciona destaque à hora atual, se necessário
-  if (highlightCurrentHour) {
-    const currentHourElement = document.getElementById(`${hours}:${minutes < 10 ? '0' : ''}${minutes}`);
-    if (currentHourElement) {
-      currentHourElement.classList.add('current-hour');
+      // Adiciona destaque à hora atual, se necessário
+      if (highlightCurrentHour) {
+        const currentHourElement = document.getElementById(`${hours}:${minutes < 10 ? '0' : ''}${minutes}`);
+        if (currentHourElement) {
+          currentHourElement.classList.add('current-hour');
+        }
+      }
+
+      // Chama a função novamente a cada segundo
+      setTimeout(() => animateClock(clockId, highlightCurrentHour), 1000);
     }
-  }
 
-  // Chama a função novamente a cada segundo
-  setTimeout(() => animateClock(clockId, highlightCurrentHour), 1000);
-}
+    function scrollToCurrentHour() {
+      const currentDate = new Date();
+      const currentHour = currentDate.getHours();
+      const currentMinute = currentDate.getMinutes();
 
-function scrollToCurrentHour() {
-  const currentDate = new Date();
-  const currentHour = currentDate.getHours();
-  const currentMinute = currentDate.getMinutes();
+      const currentHourClass = `${currentHour}:${currentMinute < 10 ? '0' : ''}${currentMinute}`;
+      const currentHourElement = document.getElementById(currentHourClass);
 
-  const currentHourClass = `${currentHour}:${currentMinute < 10 ? '0' : ''}${currentMinute}`;
-  const currentHourElement = document.getElementById(currentHourClass);
+      if (currentHourElement) {
+        currentHourElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
 
-  if (currentHourElement) {
-    currentHourElement.scrollIntoView({ behavior: 'smooth' });
-  }
-}
+    function updateDigitalClock() {
+      const currentDate = new Date();
+      const hours = currentDate.getHours();
+      const minutes = currentDate.getMinutes();
 
-function updateDigitalClock() {
-  const currentDate = new Date();
-  const hours = currentDate.getHours();
-  const minutes = currentDate.getMinutes();
+      const digitalClock = document.getElementById('digital-clock');
+      digitalClock.textContent = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
 
-  const digitalClock = document.getElementById('digital-clock');
-  digitalClock.textContent = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
-
-  // Atualiza o relógio digital a cada minuto
-  setTimeout(updateDigitalClock, 60000);
-}
-</script>
+      // Atualiza o relógio digital a cada minuto
+      setTimeout(updateDigitalClock, 60000);
+    }
+  </script>
 
 </body>
 
