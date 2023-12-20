@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -664,110 +665,78 @@
   <script>
     // Exemplo de animação de relógio com SVG
     animateClock("left-clock", true);
-    animateClock("right-clock", false);
+animateClock("right-clock", false);
 
-    // Rola automaticamente para a hora atual ou a hora mais próxima significativa
-    scrollToCurrentOrNearestHour();
+// Rola automaticamente para a hora atual
+scrollToCurrentHour();
 
-    // Atualiza o relógio digital
-    updateDigitalClock();
+// Atualiza o relógio digital
+updateDigitalClock();
 
-        function animateClock(clockId, highlightCurrentHour) {
-      const clock = document.getElementById(clockId);
-      const circle = clock.querySelector('circle');
-      const hourHand = clock.querySelector('.hour-hand');
-      const minuteHand = clock.querySelector('.minute-hand');
-      const radius = parseFloat(circle.getAttribute('r'));
-      const centerX = parseFloat(circle.getAttribute('cx'));
-      const centerY = parseFloat(circle.getAttribute('cy'));
+function animateClock(clockId, highlightCurrentHour) {
+  const clock = document.getElementById(clockId);
+  const circle = clock.querySelector('circle');
+  const hourHand = clock.querySelector('.hour-hand');
+  const minuteHand = clock.querySelector('.minute-hand');
+  const radius = parseFloat(circle.getAttribute('r'));
+  const centerX = parseFloat(circle.getAttribute('cx'));
+  const centerY = parseFloat(circle.getAttribute('cy'));
 
-      const currentDate = new Date();
-      const hours = currentDate.getHours() % 12; // Garante que estamos no formato de 12 horas
-      const minutes = currentDate.getMinutes();
-      const seconds = currentDate.getSeconds();
+  const currentDate = new Date();
+  const hours = currentDate.getHours() % 12; // Garante que estamos no formato de 12 horas
+  const minutes = currentDate.getMinutes();
+  const seconds = currentDate.getSeconds();
 
-      const hourAngle = (360 / 12) * (hours + minutes / 60); // Ângulo para a hora
-      const minuteAngle = (360 / 60) * minutes + (360 / 60) * (seconds / 60); // Ângulo para os minutos
+  const hourAngle = (360 / 12) * (hours + minutes / 60); // Ângulo para a hora
+  const minuteAngle = (360 / 60) * minutes + (360 / 60) * (seconds / 60); // Ângulo para os minutos
 
-      // Adicione uma distorção surreal aos ponteiros
-      const distortedHourAngle = hourAngle + Math.sin(seconds * (Math.PI / 30)) * 10;
-      const distortedMinuteAngle = minuteAngle + Math.cos(seconds * (Math.PI / 30)) * 5;
+  // Adicione uma distorção surreal aos ponteiros
+  const distortedHourAngle = hourAngle + Math.sin(seconds * (Math.PI / 30)) * 10;
+  const distortedMinuteAngle = minuteAngle + Math.cos(seconds * (Math.PI / 30)) * 5;
 
-      // Aplica a transformação de rotação aos ponteiros
-      hourHand.setAttribute('transform', `rotate(${distortedHourAngle} ${centerX} ${centerY})`);
-      minuteHand.setAttribute('transform', `rotate(${distortedMinuteAngle} ${centerX} ${centerY})`);
+  // Aplica a transformação de rotação aos ponteiros
+  hourHand.setAttribute('transform', `rotate(${distortedHourAngle} ${centerX} ${centerY})`);
+  minuteHand.setAttribute('transform', `rotate(${distortedMinuteAngle} ${centerX} ${centerY})`);
 
-      // Adiciona destaque à hora atual, se necessário
-      if (highlightCurrentHour) {
-        const currentHourElement = document.getElementById(`${hours}:${minutes < 10 ? '0' : ''}${minutes}`);
-        if (currentHourElement) {
-          currentHourElement.classList.add('current-hour');
-        }
-      }
-
-      // Chama a função novamente a cada segundo
-      setTimeout(() => animateClock(clockId, highlightCurrentHour), 1000);
-    
+  // Adiciona destaque à hora atual, se necessário
+  if (highlightCurrentHour) {
+    const currentHourElement = document.getElementById(`${hours}:${minutes < 10 ? '0' : ''}${minutes}`);
+    if (currentHourElement) {
+      currentHourElement.classList.add('current-hour');
     }
+  }
 
-    function scrollToCurrentOrNearestHour() {
-      const currentDate = new Date();
-      const currentHour = currentDate.getHours();
-      const currentMinute = currentDate.getMinutes();
+  // Chama a função novamente a cada segundo
+  setTimeout(() => animateClock(clockId, highlightCurrentHour), 1000);
+}
 
-      const currentHourId = `${currentHour}:${currentMinute < 10 ? '0' : ''}${currentMinute}`;
-      const currentHourElement = document.getElementById(currentHourId);
+function scrollToCurrentHour() {
+  const currentDate = new Date();
+  const currentHour = currentDate.getHours();
+  const currentMinute = currentDate.getMinutes();
 
-      if (!currentHourElement) {
-        // Se a hora atual não tem conteúdo associado, encontre a hora mais próxima com conteúdo
-        const nearestHourElement = findNearestSignificantHour(currentHour, currentMinute);
-        if (nearestHourElement) {
-          nearestHourElement.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
-      } else {
-        // Se a hora atual tem conteúdo associado, role para ela
-        currentHourElement.scrollIntoView({
-          behavior: 'smooth'
-        });
-      }
-    }
+  const currentHourClass = `${currentHour}:${currentMinute < 10 ? '0' : ''}${currentMinute}`;
+  const currentHourElements = document.querySelectorAll(`.${currentHourClass}`);
 
-    function findNearestSignificantHour(currentHour, currentMinute) {
-      // Lista de horas significativas disponíveis no código
-      const significantHours = ["00:00", "03:00", "06:00", "09:00", "12:00", "15:00", "18:00", "21:00"];
+  if (currentHourElements.length > 0) {
+    currentHourElements.forEach(element => {
+      element.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+}
 
-      // Calcula a diferença de tempo entre a hora atual e cada hora significativa
-      const timeDifferences = significantHours.map((hour) => {
-        const [hourPart, minutePart] = hour.split(":");
-        const hourValue = parseInt(hourPart, 10);
-        const minuteValue = parseInt(minutePart, 10);
+function updateDigitalClock() {
+  const currentDate = new Date();
+  const hours = currentDate.getHours();
+  const minutes = currentDate.getMinutes();
 
-        const timeDifference = Math.abs((currentHour * 60 + currentMinute) - (hourValue * 60 + minuteValue));
-        return timeDifference;
-      });
+  const digitalClock = document.getElementById('digital-clock');
+  digitalClock.textContent = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
 
-      // Encontra o índice da hora mais próxima
-      const nearestHourIndex = timeDifferences.indexOf(Math.min(...timeDifferences));
-
-      // Obtém o elemento correspondente à hora mais próxima
-      return document.getElementById(significantHours[nearestHourIndex]);
-    }
-
-    function updateDigitalClock() {
-      // ... (código de atualização do relógio digital)
-      const currentDate = new Date();
-      const hours = currentDate.getHours();
-      const minutes = currentDate.getMinutes();
-
-      const digitalClock = document.getElementById('digital-clock');
-      digitalClock.textContent = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
-
-      // Atualiza o relógio digital a cada minuto
-      setTimeout(updateDigitalClock, 60000);
-    }
-  </script>
+  // Atualiza o relógio digital a cada minuto
+  setTimeout(updateDigitalClock, 60000);
+}
+</script>
 
 </body>
 
