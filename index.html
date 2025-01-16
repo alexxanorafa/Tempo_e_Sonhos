@@ -24,9 +24,11 @@
       color: #2c3e50;
       font-size: 2.5em;
     }
-/* Contêiner do menu (sem alterar o design) */
+
+    /* Contêiner do menu */
 .menu {
   display: flex;
+  flex-wrap: wrap; /* Permite a quebra de linha se necessário */
   justify-content: center;
   align-items: center;
   padding: 10px 0;
@@ -40,7 +42,8 @@
   margin: 0;
   display: flex;
   gap: 15px; /* Espaço entre os itens */
-  flex-wrap: nowrap; /* Não permitir quebra para nova linha */
+  flex-wrap: wrap; /* Permite a quebra de linha */
+  justify-content: center; /* Centraliza os itens */
 }
 
 /* Estilo para os itens do menu */
@@ -50,16 +53,19 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   height: 40px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* Alinha verticalmente */
+  justify-content: center; /* Alinha horizontalmente */
   text-decoration: none;
   color: #2c3e50;
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: 500;
   transition: all 0.3s ease;
-  padding: 0 10px;
+  padding: 0 15px;
   cursor: pointer;
   text-align: center;
+  white-space: nowrap; /* Impede a quebra de linha dentro do botão */
+  overflow: hidden; /* Impede que o texto ultrapasse o botão */
+  text-overflow: ellipsis; /* Coloca "..." no final se o texto for longo */
 }
 
 /* Efeito hover no item do menu */
@@ -72,30 +78,23 @@
 
 /* Ajustes para tornar o menu responsivo */
 
-/* Quando a tela for menor que 768px, ajustar o menu */
+/* Quando a tela for menor que 768px */
 @media (max-width: 768px) {
-  .menu-list {
-    gap: 10px; /* Menos espaço entre os itens */
-  }
-
   .menu-item {
     height: 35px;
-    font-size: 0.85em; /* Reduzir o tamanho da fonte */
+    font-size: 0.9em; /* Ajusta o tamanho da fonte */
+    padding: 0 12px; /* Ajusta o padding */
   }
 }
 
-/* Quando a tela for ainda menor que 480px, mais ajustes */
+/* Quando a tela for menor que 480px */
 @media (max-width: 480px) {
-  .menu-list {
-    gap: 5px; /* Menos espaço entre os itens */
-  }
-
   .menu-item {
     height: 30px;
-    font-size: 0.75em; /* Menor tamanho da fonte */
+    font-size: 0.8em; /* Reduz mais o tamanho da fonte */
+    padding: 0 10px; /* Ajuste no padding */
   }
 }
-
 
     h2 {
       color: #2c3e50;
