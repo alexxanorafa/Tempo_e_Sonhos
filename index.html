@@ -24,66 +24,78 @@
       color: #2c3e50;
       font-size: 2.5em;
     }
-   /* Container do menu */
+/* Contêiner do menu (sem alterar o design) */
 .menu {
-  display: flex; /* Usar flexbox para alinhar os itens horizontalmente */
-  justify-content: center; /* Centraliza os itens no eixo horizontal */
-  align-items: center; /* Alinha os itens no centro do eixo vertical */
-  gap: 15px; /* Espaçamento entre os itens */
-  padding: 10px 0; /* Espaçamento superior e inferior para o contêiner */
-  width: 100%; /* Garantir que o container ocupe toda a largura da tela */
-  position: relative; /* Para garantir o controle total da posição do menu */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  width: 100%;
 }
 
-/* Estilo de cada item do menu */
+/* Lista do menu */
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 15px; /* Espaço entre os itens */
+  flex-wrap: nowrap; /* Não permitir quebra para nova linha */
+}
+
+/* Estilo para os itens do menu */
 .menu-item {
-  background-color: #ecf0f1; /* Cor original */
-  border-radius: 8px; /* Bordas arredondadas para um toque mais suave */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  width: 100px; /* Largura discreta */
-  height: 40px; /* Altura mais discreta */
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #2c3e50; /* Cor original do texto */
-  font-size: 0.9em; /* Fonte um pouco menor e discreta */
-  font-weight: 500; /* Fonte com peso médio */
-  transition: all 0.3s ease; /* Transições suaves */
-  padding: 0 10px; /* Espaçamento lateral para garantir que o texto não fique colado às bordas */
-  cursor: pointer; /* Deixar o cursor de ponteiro para melhorar a interação */
-  text-align: center; /* Garantir que o texto esteja bem posicionado */
+  color: #2c3e50;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0 10px;
+  cursor: pointer;
+  text-align: center;
 }
 
+/* Efeito hover no item do menu */
 .menu-item:hover {
-  transform: scale(1.05); /* Efeito de hover suave */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave no hover */
-  background-color: #bdc3c7; /* Cor original do hover */
-  color: #fff; /* Mudar a cor do texto para branco no hover */
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #bdc3c7;
+  color: #fff;
 }
 
-.menu-item:active {
-  transform: scale(0.98); /* Efeito de clique, para dar um feedback visual */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave no clique */
-}
+/* Ajustes para tornar o menu responsivo */
 
-/* Ajustes para telas menores */
+/* Quando a tela for menor que 768px, ajustar o menu */
 @media (max-width: 768px) {
+  .menu-list {
+    gap: 10px; /* Menos espaço entre os itens */
+  }
+
   .menu-item {
-    width: 90px; /* Diminuir a largura */
-    height: 35px; /* Diminuir a altura */
-    font-size: 0.85em; /* Ajustar o tamanho da fonte */
+    height: 35px;
+    font-size: 0.85em; /* Reduzir o tamanho da fonte */
   }
 }
 
-/* Para telas muito pequenas */
+/* Quando a tela for ainda menor que 480px, mais ajustes */
 @media (max-width: 480px) {
+  .menu-list {
+    gap: 5px; /* Menos espaço entre os itens */
+  }
+
   .menu-item {
-    width: 80px; /* Largura ainda menor */
-    height: 30px; /* Altura ainda menor */
-    font-size: 0.8em; /* Tamanho da fonte ainda menor */
+    height: 30px;
+    font-size: 0.75em; /* Menor tamanho da fonte */
   }
 }
+
 
     h2 {
       color: #2c3e50;
@@ -198,13 +210,17 @@
     }
   </style>
 </head>
-  <nav class="menu">
-    <a href="https://alexxanorafa.github.io/Tempo_e_Sonhos/" class="menu-item">Tempo e Sonhos</a>
-    <a href="https://alexxanorafa.github.io/posicionamentodosastros/" class="menu-item">Mapa Astral</a>
-    <a href="https://alexxanorafa.github.io/TarodeMarselha/" class="menu-item">Tarô de Marselha</a>
-    <a href="https://alexxanorafa.github.io/Runas-do-Destino/" class="menu-item">Runas do Destino</a>
-    <a href="https://alexxanorafa.github.io/O-Construtor-do-Destino/" class="menu-item">O Construtor do Destino</a>
+<nav class="menu" aria-label="Menu de navegação">
+    <ul class="menu-list">
+      <li><a href="https://alexxanorafa.github.io/Tempo_e_Sonhos/" class="menu-item" aria-label="Tempo e Sonhos">Tempo e Sonhos</a></li>
+      <li><a href="https://alexxanorafa.github.io/posicionamentodosastros/" class="menu-item" aria-label="Mapa Astral">Mapa Astral</a></li>
+      <li><a href="https://alexxanorafa.github.io/TarodeMarselha/" class="menu-item" aria-label="Tarô de Marselha">Tarô de Marselha</a></li>
+      <li><a href="https://alexxanorafa.github.io/Runas-do-Destino/" class="menu-item" aria-label="Runas do Destino">Runas do Destino</a></li>
+      <li><a href="https://alexxanorafa.github.io/O-Construtor-do-Destino/" class="menu-item" aria-label="O Construtor do Destino">O Construtor do Destino</a></li>
+    </ul>
   </nav>
+  
+  
 
 <body>
 
