@@ -936,18 +936,41 @@ h1 {
       setTimeout(() => animateClock(clockId, highlightCurrentHour), 1000);
     }
 
-    function scrollToCurrentHour() {
-        const currentDate = new Date();
-        const currentHour = currentDate.getHours().toString().padStart(2, '0');
-        const currentMinute = currentDate.getMinutes().toString().padStart(2, '0');
+function scrollToCurrentHour() {
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours().toString().padStart(2, '0');
+    const currentMinute = currentDate.getMinutes().toString().padStart(2, '0');
+    const currentTime = `${currentHour}:${currentMinute}`;
 
-        const currentHourClass = `${currentHour}:${currentMinute}`;
-        const currentHourElement = document.getElementById(currentHourClass);
+    let currentHourElement = document.getElementById(currentTime);
 
-        if (currentHourElement) {
-            currentHourElement.scrollIntoView({ behavior: 'smooth' });
+    if (currentHourElement) {
+        currentHourElement.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        // Se a hora exata não existir, procurar o intervalo mais próximo
+        const timeElements = document.querySelectorAll('[id]'); // Pega todos os elementos com ID
+        let closestElement = null;
+        let closestTimeDiff = Infinity;
+
+        timeElements.forEach(element => {
+            const elementTime = element.id;
+            const [elementHour, elementMinute] = elementTime.split(':').map(Number);
+            const elementTotalMinutes = elementHour * 60 + elementMinute;
+            const currentTotalMinutes = parseInt(currentHour) * 60 + parseInt(currentMinute);
+
+            const diff = Math.abs(currentTotalMinutes - elementTotalMinutes);
+
+            if (diff < closestTimeDiff) {
+                closestTimeDiff = diff;
+                closestElement = element;
+            }
+        });
+
+        if (closestElement) {
+            closestElement.scrollIntoView({ behavior: 'smooth' });
         }
     }
+}
 
     function updateDigitalClock() {
       const currentDate = new Date();
