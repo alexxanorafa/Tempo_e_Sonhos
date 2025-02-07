@@ -937,16 +937,16 @@ h1 {
     }
 
     function scrollToCurrentHour() {
-      const currentDate = new Date();
-      const currentHour = currentDate.getHours();
-      const currentMinute = currentDate.getMinutes();
+        const currentDate = new Date();
+        const currentHour = currentDate.getHours().toString().padStart(2, '0');
+        const currentMinute = currentDate.getMinutes().toString().padStart(2, '0');
 
-      const currentHourClass = `${currentHour}:${currentMinute < 10 ? '0' : ''}${currentMinute}`;
-      const currentHourElement = document.getElementById(currentHourClass);
+        const currentHourClass = `${currentHour}:${currentMinute}`;
+        const currentHourElement = document.getElementById(currentHourClass);
 
-      if (currentHourElement) {
-        currentHourElement.scrollIntoView({ behavior: 'smooth' });
-      }
+        if (currentHourElement) {
+            currentHourElement.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     function updateDigitalClock() {
