@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-PT">
 
@@ -9,265 +8,47 @@
   <meta name="description" content="Descubra os significados das horas do dia.">
   <meta name="keywords" content="horas, significados, tempo, sonhos, momento, instante, período, fase, ciclo, tempo, ocasião, ponto, temporada, intervalo, prazo, lapso, duração, dia, noite, tarde, manhã, madrugada, meia-noite, crepúsculo, alvorecer, anoitecer, pôr do sol, amanhecer, noturno, véspera, aguardar, demorar, suceder, decorrer, transcorrer, passar, correr, transitar, transpor, findar, terminar, encerrar, completar, realizar, ocorrer, acontecer, desenrolar-se, transpirar, decorrer, durar, perdurar, persistir, continuar, prosseguir, fluir, mover-se, transcorrer, suceder-se, acontecer, passar, interpretações, sentidos, definições, acepções, entendimentos, concepções, explicações, significações, mensagens, importâncias, valores, sentenças, expressões, palavras, sinônimos, sinonímias, conotações, denotações, implicações, referências, comunicações, sugestões, símbolos, simbolismos, intenções, propósitos, desígnios, fins, metas, destinos, objetivos, alvos, razões, causas, motivações, fundamentos, origens, justificativas, razões, porquês, porções, partes, fragmentos, aspectos, faces, nuances, pontos, detalhes, período, época, estação, duração, ciclo, fase, momento, intervalo, instante, ocasião, idade, era, prazo, lapso, etapa, passagem, transição, sucessão, decorrência, contemporaneidade, contemporâneo, contemporânea, contemporâneos, contemporâneas, atualidade, atual, atuais, tempo presente, presente, passado, futuro, antes, depois, antigamente, hoje, ontem, amanhã, agora, imediatamente, gradualmente, lentamente, rapidamente, logo, em breve, brevemente, dentro em breve, daqui a pouco, ainda, já, sempre, nunca, às vezes, frequentemente, raramente, ocasionalmente, diariamente, semanalmente, mensalmente, anualmente, sazonalmente, temporariamente, visões, fantasias, aspirações, desejos, ilusões, quimeras, utopias, devaneios, idealizações, projetos, metas, expectativas, esperanças, anseios, ambições, planos, vontades, intenções, fantasmas, quimeras, delírios, imaginações, criações, miragens, enredos, fábulas, contos, histórias, narrativas, mitos, lendas, fabulações, romances, novelas, épicos, poemas, canções, músicas, criações, produções, realizações, conquistas, sucessos, triunfos, vitórias, realizações, prosperidades, felicidades, sortes, fortunas, riquezas, bens, benesses, benefícios, alegrias, afortunamentos, dons, talentos, habilidades, destrezas, capacidades, potencialidades ">
   <meta name="author" content="Alexandre Ventura">
-
-  <style>
-    body {
-      font-family: 'Times New Roman', serif;
-      text-align: center;
-      padding: 20px;
-      margin-left: 10%;
-      margin-right: 10%;
-      margin-top: 20px;
-      background-color: #f8f8f8;
-    }
-
-h1 {
-    color: #2c3e50;
-    font-size: 2.0em;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 2px #d4b192;
-}
-
-/* Estilo do menu */
-.menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 0;
-    width: 100%;
-    background: transparent; /* Remove o fundo específico */
-    box-shadow: transparent; /* Remove o box-shadow */
-}
-
-.menu-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.menu-item {
-    background-color: transparent;
-    border-radius: 4px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #2c3e50;
-    font-size: 0.9em;
-    font-weight: 250;
-    padding: 0 8px;
-    cursor: pointer;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    box-shadow: 0 1px 2px transparent;
-    position: relative;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-.menu-item:hover {
-    background-color: #97a6b6;
-    color: #f8f8f8;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transform: translateY(-2px);
-}
-/* Efeito de foco */
-.menu-item:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(52, 73, 94, 0.3); /* Destaque sutil */
-    background-color: #97a6b6; /* Fundo escuro */
-    color: #ecf0f1; /* Texto claro */
-}
-
-.menu-item::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 3px;
-    background-color: #d4b192;
-    transition: width 0.3s ease, left 0.3s ease;
-}
-
-.menu-item:hover::after {
-    width: 100%;
-    left: 0;
-}
-
-/* Ajustes responsivos */
-@media (max-width: 768px) {
-    .menu-item {
-        height: 25px; /* Reduz altura */
-        font-size: 0.8em; /* Fonte menor */
-        padding: 0 6px; /* Padding reduzido */
-    }
-}
-
-@media (max-width: 480px) {
-    .menu-list {
-        flex-direction: row; /* Empilha os itens */
-        gap: 2px; /* Espaçamento menor */
-    }
-
-    .menu-item {
-        height: 20px; /* Altura mais compacta */
-        font-size: 0.55em; /* Fonte menor */
-        padding: 0 3px; /* Padding ainda menor */
-    }
-}
-
-    h2 {
-      color: #2c3e50;
-      font-size: 1.8em;
-      margin-top: 20px;
-    }
-
-    p {
-      color: #555;
-    }
-
-    header,
-    main,
-    footer {
-      margin: 20px 0;
-    }
-
-    #left-bar,
-    #right-bar {
-      position: fixed;
-      top: 0;
-      height: 100%;
-      width: 10%;
-      background-color: #34495e;
-      z-index: -1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    #left-bar {
-      left: 0;
-    }
-
-    #right-bar {
-      right: 0;
-    }
-
-    .content {
-      z-index: 1;
-      background-color: #ecf0f1;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .header-art,
-    .footer-art {
-      font-family: 'Arial Black', sans-serif;
-      font-size: 1.8em;
-      margin-top: 20px;
-      color: #3498db;
-    }
-
-    .clock {
-      fill: none;
-      stroke: #2c3e50;
-      /* Azul escuro para as linhas do relógio analógico */
-      stroke-width: 2;
-    }
-
-    .hour-hand,
-    .minute-hand {
-      stroke: #d4b192;
-      /* Laranja para as mãos do relógio analógico */
-      stroke-width: 4;
-    }
-
-    .current-hour {
-      fill: #d4b192;
-      /* Laranja para a hora atual */
-    }
-
-    .digital-clock {
-      font-size: 7em;
-      color: #d4b192;
-      font-family: 'Courier New', monospace;
-      /* Usando uma fonte monoespaçada para manter a consistência na transformação */
-      position: relative;
-      animation: melt 5s infinite;
-    }
-
-    @keyframes melt {
-      0% {
-        transform: scaleY(1);
-      }
-
-      25% {
-        transform: scaleY(0.8);
-      }
-
-      50% {
-        transform: scaleY(1.2);
-      }
-
-      75% {
-        transform: scaleY(0.9);
-      }
-
-      100% {
-        transform: scaleY(1);
-      }
-    }
-
-    @media only screen and (max-width: 600px) {
-      .clock {
-        width: 80%;
-        margin: 0 auto;
-      }
-
-      /* Adapte outros estilos conforme necessário para dispositivos móveis */
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-    <nav class="menu">
-                <a href="https://alexxanorafa.github.io/Tempo_e_Sonhos/" class="menu-item">Tempo e Sonhos</a>
-                <a href="https://alexxanorafa.github.io/Aneis_da_Sabedoria/" class="menu-item">Anéis da Sabedoria</a>
-                <a href="https://alexxanorafa.github.io/TarodeMarselha/" class="menu-item">Tarô de Marselha</a>
-                <a href="https://alexxanorafa.github.io/Runas-do-Destino/" class="menu-item">Runas do Destino</a>
-                <a href="https://alexxanorafa.github.io/Runas-Celtas/" class="menu-item">Runas Celtas</a>
-                <a href="https://alexxanorafa.github.io/Cartas-de-Sibila/" class="menu-item">Cartas de Sibila</a>
-                <a href="https://alexxanorafa.github.io/posicionamentodosastros/" class="menu-item">Carta Astral</a>
-                <a href="https://alexxanorafa.github.io/O-Construtor-do-Destino/" class="menu-item">O Construtor do Destino</a>
-                <a href="https://alexxanorafa.github.io/Tabuleiro-Quantico/" class="menu-item">Tabuleiro Quantico</a>
-                <a href="https://alexxanorafa.github.io/Oraculo-das-Pedras/" class="menu-item">Oráculo das Pedras</a>
-                <a href="https://alexxanorafa.github.io/I-Ching-Virtual/" class="menu-item">I Ching Virtual</a>
-                <a href="https://alexxanorafa.github.io/Biblioteca-Onirica/" class="menu-item">Biblioteca Onirica</a>
-                <a href="https://alexxanorafa.github.io/Kabbalah-Interativa/" class="menu-item">Kabbalah Interativa</a>
-                <a href="https://alexxanorafa.github.io/Almas-Conectadas/" class="menu-item">Almas Conectadas</a>
-                <a href="https://alexxanorafa.github.io/Pendulo-Divinatorio/" class="menu-item">Pendulo Divinatorio</a>
-                <a href="https://alexxanorafa.github.io/Buzios/" class="menu-item">Buzios</a>
-                <a href="https://alexxanorafa.github.io/Tasseografia/" class="menu-item">Tasseografia</a>
-                <a href="https://alexxanorafa.github.io/Xamanismo-Animal/" class="menu-item">Xamanismo Animal</a>
-                <a href="https://alexxanorafa.github.io/Animais-de-Poder/" class="menu-item">Animais de Poder</a>
-                <a href="https://alexxanorafa.github.io/Whispering-Shadows/" class="menu-item">Whispering Shadows</a>
-                <a href="https://alexxanorafa.github.io/Whispering-Shadows-2/" class="menu-item">Whispering Shadows 2</a>
-                <a href="https://alexxanorafa.github.io/Whispering-Shadows-3/" class="menu-item">Whispering Shadows 3</a>
-                <a href="https://alexxanorafa.github.io/The-Da-Vinci-Code/" class="menu-item">The Da Vinci Code</a>
-      </nav>
 
 <body>
-
+  <!-- Menu Navegação -->
   <header>
-    <div id="header-art" class="header-art"></div>
-  </header>
+    <div class="menu-icon" id="menuIcon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <nav class="menu" id="menu">
+          <ul>
+            <!-- Cada item de menu dentro de <li> -->
+            <li><a href="https://alexxanorafa.github.io/Tempo_e_Sonhos/" class="menu-item">Tempo e Sonhos</a></li>
+            <li><a href="https://alexxanorafa.github.io/Aneis_da_Sabedoria/" class="menu-item">Anéis da Sabedoria</a></li>
+            <li><a href="https://alexxanorafa.github.io/TarodeMarselha/" class="menu-item">Tarô de Marselha</a></li>
+            <li><a href="https://alexxanorafa.github.io/Runas-do-Destino/" class="menu-item">Runas do Destino</a></li>
+            <li><a href="https://alexxanorafa.github.io/Runas-Celtas/" class="menu-item">Runas Celtas</a></li>
+            <li><a href="https://alexxanorafa.github.io/Cartas-de-Sibila/" class="menu-item">Cartas de Sibila</a></li>
+            <li><a href="https://alexxanorafa.github.io/posicionamentodosastros/" class="menu-item">Carta Astral</a></li>
+            <li><a href="https://alexxanorafa.github.io/O-Construtor-do-Destino/" class="menu-item">O Construtor do Destino</a></li>
+            <li><a href="https://alexxanorafa.github.io/Tabuleiro-Quantico/" class="menu-item">Tabuleiro Quantico</a></li>
+            <li><a href="https://alexxanorafa.github.io/Oraculo-das-Pedras/" class="menu-item">Oráculo das Pedras</a></li>
+            <li><a href="https://alexxanorafa.github.io/I-Ching-Virtual/" class="menu-item">I Ching Virtual</a></li>
+            <li><a href="https://alexxanorafa.github.io/Biblioteca-Onirica/" class="menu-item">Biblioteca Onirica</a></li>
+            <li><a href="https://alexxanorafa.github.io/Kabbalah-Interativa/" class="menu-item">Kabbalah Interativa</a></li>
+            <li><a href="https://alexxanorafa.github.io/Almas-Conectadas/" class="menu-item">Almas Conectadas</a></li>
+            <li><a href="https://alexxanorafa.github.io/Pendulo-Divinatorio/" class="menu-item">Pendulo Divinatorio</a></li>
+            <li><a href="https://alexxanorafa.github.io/Buzios/" class="menu-item">Buzios</a></li>
+            <li><a href="https://alexxanorafa.github.io/Tasseografia/" class="menu-item">Tasseografia</a></li>
+            <li><a href="https://alexxanorafa.github.io/Xamanismo-Animal/" class="menu-item">Xamanismo Animal</a></li>
+            <li><a href="https://alexxanorafa.github.io/Animais-de-Poder/" class="menu-item">Animais de Poder</a></li>
+            <li><a href="https://alexxanorafa.github.io/Jornada-Arquetipica/" class="menu-item">Jornada Arquetípica</a></li>
+            <li><a href="https://alexxanorafa.github.io/Whispering-Shadows/" class="menu-item">Whispering Shadows</a></li>
+            <li><a href="https://alexxanorafa.github.io/Whispering-Shadows-2/" class="menu-item">Whispering Shadows 2</a></li>
+            <li><a href="https://alexxanorafa.github.io/Whispering-Shadows-3/" class="menu-item">Whispering Shadows 3</a></li>
+            <li><a href="https://alexxanorafa.github.io/The-Da-Vinci-Code/" class="menu-item">The Da Vinci Code</a></li>
+          </ul>
+    </nav>
+</header>
 
   <main>
 
@@ -368,24 +149,12 @@ h1 {
   
   <h2 id="01:11" class="current-time">01:11</h2>
   <p>Representa poder espiritual e intuição aguçada. Simboliza novos começos e liderança, enfatiza energias intuitivas e manifestação. Este momento sugere estar atento às mensagens do universo e seguir seu caminho com confiança.</p>
-
-  <h2 id="01:20" class="current-time">01:20</h2>
-  <p>Um novo ciclo começa com sua liderança. Confie no apoio divino e nas parcerias que surgem, pois o equilíbrio trará prosperidade.</p>
   
   <h2 id="01:23" class="current-time">01:23</h2>
   <p>Fluxo harmonioso de energia e progresso. Representa início e liderança, simboliza cooperação e parcerias. Indica expansão e crescimento. Sugere um período propício para iniciar novos projetos com colaboração e criatividade.</p>
-
-  <h2 id="01:30" class="current-time">01:30</h2>
-  <p>Este é o momento de dar vida aos seus novos começos. Use sua criatividade e sua voz para criar o que você deseja, pois sua expressão verdadeira ilumina o caminho.</p>
-
-  <h2 id="01:40" class="current-time">01:40</h2>
-  <p>Novos começos exigem paciência. Construa com dedicação e confiança, pois suas bases sólidas abrirão caminho para um futuro duradouro.</p>
-
-  <h2 id="01:50" class="current-time">01:50</h2>
-  <p>Novos caminhos estão se abrindo. Liberte-se do passado e abrace as mudanças com coragem, pois elas levarão você à sua verdadeira liberdade.</p>
-      
+  
   <h2 id="02:00" class="current-time">02:00</h2>
-  <p>Potencial para parcerias e equilíbrio. Simboliza cooperação, relacionamentos e harmonia. Destaca a importância da colaboração e da busca por relacionamentos equilibrados em sua vida. Nota para cultivar conexões saudáveis e construir união.</p>
+  <p>Potencial para parcerias e equilíbrio. Simboliza cooperação, relacionamentos e harmonia. Destaca a importância da colaboração e da busca por relacionamentos equilibrados em sua vida. Lembrete para cultivar conexões saudáveis e construir união.</p>
   
   <h2 id="02:01" class="current-time">02:01</h2>
   <p>Alinha-se aos astros, buscando relacionamentos harmônicos. Como estrela, parte de uma constelação, és a luz que brilha na sinfonia cósmica da vida.</p>
@@ -404,16 +173,7 @@ h1 {
   
   <h2 id="02:22" class="current-time">02:22</h2>
   <p>Destaca equilíbrio, cooperação e intuição. Reforça a importância de parcerias e conexões intuitivas na sua vida.</p>
-
-  <h2 id="02:34" class="current-time">02:34</h2>
-  <p>Continue avançando com equilíbrio e criatividade, sabendo que cada passo é parte de um caminho positivo e promissor.</p>
-
-  <h2 id="02:40" class="current-time">02:40</h2>
-  <p>Confie no tempo. O invisível já se constrói, equilibre-se e siga sua intuição.</p>
-
-  <h2 id="02:44" class="current-time">02:44</h2>
-  <p>Você está sendo guiado e protegido. Confie no universo e continue construindo seu caminho com dedicação e equilíbrio. A base sólida que você está criando trará grandes recompensas.</p>    
-      
+  
   <h2 id="03:00" class="current-time">03:00</h2>
   <p>Potencial criativo, novos começos, expressão e expansão. Oportunidade para iniciar projetos com entusiasmo.</p>
   
@@ -469,7 +229,7 @@ h1 {
   <p>Vibração competitiva exige cautela. Destaque: correção, sabedoria, paciência. Incentiva mudanças e preparo para transformações. Abra-se ao inesperado.</p>
   
   <h2 id="05:55" class="current-time">05:55</h2>
-  <p>Você está passando por mudanças. Amor, harmonia, êxito profissional. Natureza pacífica, destaque na família. Essa mensagem nos mostra a necessidade de seguir o caminho da verdade e da justiça, independentemente do temor.</p>
+  <p>Amor, harmonia, êxito profissional. Natureza pacífica, destaque na família.</p>
   
   <h2 id="06:00" class="current-time">06:00</h2>
   <p>Sugere equilíbrio e harmonia familiar. Representa amor e lar. Fortaleça laços e busque equilíbrio.</p>
@@ -485,13 +245,7 @@ h1 {
   
   <h2 id="06:12" class="current-time">06:12</h2>
   <p>Equilíbrio, expansão, harmonia, novos começos e parcerias. Oportunidade de iniciar algo novo com equilíbrio.</p>
-
-  <h2 id="06:33" class="current-time">06:33</h2>
-  <p>Envolto em amor divino, ilumine com compaixão. No equilíbrio, a vida floresce em bênçãos.</p>
   
-  <h2 id="06:36" class="current-time">06:36</h2>
-  <p>Confie no fluxo da vida. Equilibre o fazer e o ser, pois o universo sustenta e floresce seu caminho.</p>
-
   <h2 id="07:00" class="current-time">07:00</h2>
   <p>Espiritualidade, introspecção e conhecimento. Momento para reflexão e significado profundo.</p>
   
@@ -552,9 +306,6 @@ h1 {
   <h2 id="11:00" class="current-time">11:00</h2>
   <p>Seguir a intuição e explorar o potencial espiritual em sua jornada. Este momento destaca uma conexão especial com a espiritualidade e a necessidade de ouvir a voz interior.</p>
 
-  <h2 id="11:01" class="current-time">11:01</h2>
-  <p>Escute sua intuição e permita que ela o guie em novos começos. Você está alinhado com uma energia divina que apoia sua evolução espiritual e pessoal.</p>    
-
   <h2 id="11:10" class="current-time">11:10</h2>
   <p>Transformação e sucesso com anjo da guarda. Sensível, harmoniosa, pronta para ajudar e viver feliz.</p>
   
@@ -593,19 +344,13 @@ h1 {
 
   <h2 id="11:44" class="current-time">11:44</h2>
   <p>Momento para equilibrar intuição com ação prática</p>
-
-  <h2 id="11:55" class="current-time">11:55</h2>
-  <p>Confie na sua intuição e abrace as mudanças. O universo guia sua transformação para um novo despertar.</p>
   
   <h2 id="12:00" class="current-time">12:00</h2>
   <p>Plenitude e potencial. Oportunidade de iniciar algo novo com equilíbrio e aproveitar o potencial ilimitado disponível.</p>
   
   <h2 id="12:06" class="current-time">12:06</h2>
   <p>Equilíbrio e crescimento. Período favorável para estabelecer bases sólidas enquanto busca o progresso de forma harmoniosa e colaborativa.</p>
-
-  <h2 id="12:11" class="current-time">12:11</h2>
-  <p>Simboliza equilíbrio, harmonia e um convite para seguires a tua intuição, alinhando as tuas ações com o teu propósito de vida e confiando no caminho que estás a trilhar.</p>
-      
+  
   <h2 id="12:12" class="current-time">12:12</h2>
   <p>Amor e trabalho promissores. Equilíbrio e cuidado. Socialize, comunique-se. Cautela amorosa. Positividade, confiança no destino. Destaca confiabilidade.</p>
   
@@ -654,9 +399,6 @@ h1 {
   <h2 id="14:07" class="current-time">14:07</h2>
   <p>Equilíbrio harmonioso entre iniciar algo novo e colaborar em parcerias, promovendo relações determinadas e equilibradas.</p>
 
-  <h2 id="14:11" class="current-time">14:11</h2>
-  <p>Permita que sua intuição o conduza através das mudanças. A adaptação é essencial para o crescimento, e você está sendo guiado por forças superiores para alcançar a clareza e a transformação.</p>
-
   <h2 id="14:14" class="current-time">14:14</h2>
   <p>Aprenda, seja independente, confiante. Presença feminina crucial. Supere contratempos, destaque artístico ou de gestão. Foco leva a reconhecimento. Vibrações positivas.</p>
 
@@ -700,7 +442,7 @@ h1 {
   <p>Harmonia na construção, combinando a estabilidade e a cooperação.</p>
   
   <h2 id="16:08" class="current-time">16:08</h2>
-  <p>Sugere um período propício para cultivar relações harmoniosas e equilibrar responsabilidades familiares</p>
+  <p>Harmonia, equilíbrio, responsabilidade e cuidado. Sugere um período propício para cultivar relações harmoniosas, equilibrar responsabilidades familiares, buscar a estabilidade e expressar o cuidado nas interações pessoais. </p>
   
   <h2 id="16:16" class="current-time">16:16</h2>
   <p>Reflete sobre tua carreira. Adverte: excesso de trabalho, baixa moral. Abandona maus hábitos para um desempenho mais positivo.</p>
@@ -742,7 +484,7 @@ h1 {
   <p>A oportunidade é uma obra de arte, iniciando construções e reflexões, onde cada tic-tac é um verso na sinfonia da existência.</p>
   
   <h2 id="18:36" class="current-time">18:36</h2>
-  <p>Um aviso poético de que, no equilíbrio e crescimento pessoal, reside o verdadeiro amor-próprio.</p>
+  <p>Um lembrete poético de que, no equilíbrio e crescimento pessoal, reside o verdadeiro amor-próprio.</p>
   
   <h2 id="19:00" class="current-time">19:00</h2>
   <p>Dança do tempo, onde a pessoa aguardada se torna a protagonista de uma narrativa que entrelaça esperanças, despedidas e o eterno fluxo das relações.</p>
@@ -757,7 +499,7 @@ h1 {
   <p>Convite à surpresa nas relações. Tempo, amante sábio, tece fios invisíveis. Amor eterno e transcendente.</p>
   
   <h2 id="19:38" class="current-time">19:38</h2>
-  <p>Aviso de que, enquanto fofocas sobre nós circulam como brisas, nossa verdadeira essência é uma obra de arte, esculpida na harmonia de nossa autenticidade.</p>
+  <p>Lembrete de que, enquanto fofocas sobre nós circulam como brisas, nossa verdadeira essência é uma obra de arte, esculpida na harmonia de nossa autenticidade.</p>
   
   <h2 id="20:00" class="current-time">20:00</h2>
   <p>Transformação, esforço para benefícios. Encontros favorecidos, exige autocontrole. Emoção, equilíbrio, busca felicidade em novas experiências.</p>
@@ -776,18 +518,12 @@ h1 {
   
   <h2 id="20:21" class="current-time">20:21</h2>
   <p>Multiplicidade do amor, onde o encontro de amanhã é um capítulo no livro da conexão, revelando que amar a si mesmo(a) e a outros é a sinfonia mais bela do coração.</p>
-
-  <h2 id="20:22" class="current-time">20:22</h2>
-  <p>Você está rodeado de apoio espiritual e tem a capacidade de manifestar grandes realizações. Confie no processo e mantenha o equilíbrio para construir algo duradouro.</p>
-
-  <h2 id="20:30" class="current-time">20:30</h2>
-  <p>Equilibre suas relações e permita que sua criatividade flua livremente. O universo está guiando você para um caminho onde sua expressão autêntica será a chave para grandes realizações.</p>
   
   <h2 id="20:40" class="current-time">20:40</h2>
   <p>Nos fins, sejam ciclos ou relacionamentos, reside a semente do renascimento. O fim é a musa que prepara o terreno para novos começos, onde a jornada continua em um eterno ciclo de evolução.</p>
   
   <h2 id="21:00" class="current-time">21:00</h2>
-  <p>Oportunidade para elogios, desfazendo boatos com notas de verdade. Esteja atento(a), na melodia da sinceridade, desenha-se a essência pura, desmentindo fofocas.</p>
+  <p>Chance para elogios, desfazendo boatos com notas de verdade. Esteja atento(a), na melodia da sinceridade, desenha-se a essência pura, desmentindo fofocas.</p>
   
   <h2 id="21:09" class="current-time">21:09</h2>
   <p>Trilho para crescer. Um convite à reflexão profunda e à resiliência, onde os desafios tecem laços mais verdadeiros.</p>
@@ -849,15 +585,9 @@ h1 {
   <h2 id="22:33" class="current-time">22:33</h2>
   <p>Representa maestria espiritual e simboliza mestria emocional. Indica potencial para manifestar sonhos com sabedoria e compaixão.</p>
   
-  <h2 id="22:42" class="current-time">22:42</h2>
-  <p>Confie na sua capacidade de criar, mantenha o equilíbrio e alinhe-se ao fluxo universal. O caminho está sendo guiado.</p>
-
   <h2 id="22:44" class="current-time">22:44</h2>
-  <p>Criatividade, expressão artística, otimismo e comunicação. Nesse contexto, sugere um período propício para explorar a criatividade, se expressar artisticamente, manter uma atitude otimista e aprimorar a comunicação em relacionamentos e situações.</p>
+  <p>Criatividade, expressão artística, otimismo e comunicação. Nesse contexto, sugere um período propício para explorar a criatividade, se expressar artisticamente, manter uma atitude otimista e aprimorar a comunicação em relacionamentos e situações. </p>
 
-  <h2 id="22:52" class="current-time">22:52</h2>
-  <p>Mantenha a confiança e o foco enquanto o universo traz mudanças para o seu bem. Use sua sabedoria interior para construir um futuro alinhado com seu propósito maior.</p>
-   
   <h2 id="22:55" class="current-time">22:55</h2>
   <p>Sugere equilíbrio e estabilidade. Representa realização de objetivos e mudanças positivas. Indica a capacidade de alcançar metas com flexibilidade e adaptabilidade.</p>
   
@@ -897,114 +627,7 @@ h1 {
     <div id="footer-art" class="footer-art"></div>
   </footer>
 
-  <script>
-    // Exemplo de animação de relógio com SVG
-    animateClock("left-clock", true);
-    animateClock("right-clock", false);
-
-    // Rola automaticamente para a hora atual
-    scrollToCurrentHour();
-
-    // Atualiza o relógio digital
-    updateDigitalClock();
-
-    function animateClock(clockId, highlightCurrentHour) {
-      const clock = document.getElementById(clockId);
-      const circle = clock.querySelector('circle');
-      const hourHand = clock.querySelector('.hour-hand');
-      const minuteHand = clock.querySelector('.minute-hand');
-      const radius = parseFloat(circle.getAttribute('r'));
-      const centerX = parseFloat(circle.getAttribute('cx'));
-      const centerY = parseFloat(circle.getAttribute('cy'));
-
-      const currentDate = new Date();
-      const hours = currentDate.getHours() % 12; // Garante que estamos no formato de 12 horas
-      const minutes = currentDate.getMinutes();
-      const seconds = currentDate.getSeconds();
-
-      const hourAngle = (360 / 12) * (hours + minutes / 60); // Ângulo para a hora
-      const minuteAngle = (360 / 60) * minutes + (360 / 60) * (seconds / 60); // Ângulo para os minutos
-
-      // Adicione uma distorção surreal aos ponteiros
-      const distortedHourAngle = hourAngle + Math.sin(seconds * (Math.PI / 30)) * 10;
-      const distortedMinuteAngle = minuteAngle + Math.cos(seconds * (Math.PI / 30)) * 5;
-
-      // Aplica a transformação de rotação aos ponteiros
-      hourHand.setAttribute('transform', `rotate(${distortedHourAngle} ${centerX} ${centerY})`);
-      minuteHand.setAttribute('transform', `rotate(${distortedMinuteAngle} ${centerX} ${centerY})`);
-
-      // Adiciona destaque à hora atual, se necessário
-      if (highlightCurrentHour) {
-        const currentHourElement = document.getElementById(`${hours}:${minutes < 10 ? '0' : ''}${minutes}`);
-        if (currentHourElement) {
-          currentHourElement.classList.add('current-hour');
-        }
-      }
-
-      // Chama a função novamente a cada segundo
-      setTimeout(() => animateClock(clockId, highlightCurrentHour), 1000);
-    }
-
-function scrollToCurrentHour() {
-    const currentDate = new Date();
-    const currentHour = currentDate.getHours().toString().padStart(2, '0');
-    const currentMinute = currentDate.getMinutes().toString().padStart(2, '0');
-    const currentTime = `${currentHour}:${currentMinute}`;
-
-    let currentHourElement = document.getElementById(currentTime);
-
-    if (currentHourElement) {
-        currentHourElement.scrollIntoView({ behavior: 'smooth' });
-    } else {
-        // Se a hora exata não existir, procurar o intervalo mais próximo
-        const timeElements = document.querySelectorAll('[id]'); // Pega todos os elementos com ID
-        let closestElement = null;
-        let closestTimeDiff = Infinity;
-
-        timeElements.forEach(element => {
-            const elementTime = element.id;
-            const [elementHour, elementMinute] = elementTime.split(':').map(Number);
-            const elementTotalMinutes = elementHour * 60 + elementMinute;
-            const currentTotalMinutes = parseInt(currentHour) * 60 + parseInt(currentMinute);
-
-            const diff = Math.abs(currentTotalMinutes - elementTotalMinutes);
-
-            if (diff < closestTimeDiff) {
-                closestTimeDiff = diff;
-                closestElement = element;
-            }
-        });
-
-        if (closestElement) {
-            closestElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-}
-
-    function updateDigitalClock() {
-      const currentDate = new Date();
-      const hours = currentDate.getHours();
-      const minutes = currentDate.getMinutes();
-
-      const digitalClock = document.getElementById('digital-clock');
-      digitalClock.textContent = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
-
-      // Atualiza o relógio digital a cada minuto
-      setTimeout(updateDigitalClock, 60000);
-    }
-        // Função para rolar até o topo
-        function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'  // Rolagem suave
-      });
-    }
-
-    // Adicionando o evento de clique aos relógios laterais
-    document.getElementById('left-bar').addEventListener('click', scrollToTop);
-    document.getElementById('right-bar').addEventListener('click', scrollToTop);
-  </script>
-
+  <script src="script.js"></script>
 </body>
 
 </html>
